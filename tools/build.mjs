@@ -83,7 +83,7 @@ ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voice Judge">
 <meta property="og:title" content="${esc(title)}">
@@ -155,7 +155,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=2" defer></script>
+<script src="/assets/js/site.js?v=3" defer></script>
 </body>
 </html>
 `;
@@ -192,7 +192,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=2" defer></script>
+<script src="/assets/js/site.js?v=3" defer></script>
 </body>
 </html>
 `;
@@ -209,6 +209,13 @@ function landing() {
   const quotes = JUDGE_LINES.map((q) => `<li>${esc(q)}</li>`).join('');
   const quotesDup = JUDGE_LINES.map((q) => `<li aria-hidden="true">${esc(q)}</li>`).join('');
   const sceneLookup = JSON.stringify(aliasMap);
+  // Screenshots and rating come from the live App Store listing (tools/fetch_store.mjs).
+  const store = JSON.parse(readFileSync(join(ROOT, 'data/store.json'), 'utf8'));
+  const shotsHtml = store.shots.map((sh) => `      <li><img src="/assets/img/shots/${sh.file}?v=${store.fetchedAt}" width="600" height="1299" alt="${esc(sh.alt)}" loading="lazy" decoding="async"></li>`).join('\n');
+  // Only show a rating the store really has, and only a good one.
+  const ratingHtml = store.rating >= 4 && store.ratingCount >= 20
+    ? `      <p class="rating"><span class="stars" style="--r:${store.rating}" aria-hidden="true">★★★★★</span><b>${store.rating.toFixed(1)}</b> on the App Store<small>${store.ratingCount} ratings</small></p>\n`
+    : '';
   const vars = {
     HEAD: head({
       title: 'Voice Judge: Dub the Scene, Get Judged | Party Game for iPhone & Android',
@@ -225,6 +232,8 @@ function landing() {
     QUOTES: quotes + quotesDup,
     HERO_QUOTES: esc(JSON.stringify(JUDGE_LINES.slice(5, 12))),
     SCENE_LOOKUP: sceneLookup,
+    SHOTS: shotsHtml,
+    RATING: ratingHtml,
     SUPPORT: esc(cfg.supportEmail),
   };
   return tpl.replace(/\{\{(\w+)\}\}/g, (_, k) => {

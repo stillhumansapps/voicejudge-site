@@ -107,3 +107,14 @@ GitHub then redirects `www.voicejudge.app` to `voicejudge.app`.
   it is the live listing.
 - The apps still use `AppConfig.SHARE_URL = https://mindblows.com/apps/voice-judge`; switch it
   to `https://voicejudge.app/c/<id>` once the domain is live.
+
+## App Store screenshots and rating
+
+The "Inside the app" screenshots and the star rating in the hero come from the live App Store
+listing, not from files in the app repo:
+
+    node tools/fetch_store.mjs   # downloads the screenshots, writes data/store.json
+    node tools/build.mjs
+
+Run both after the store listing changes. The rating only shows when it is 4.0 or higher with at
+least 20 ratings.

@@ -1,0 +1,29 @@
+{
+  "appStoreId": "6801482202",
+  "version": "1.0.10",
+  "rating": 4.4,
+  "ratingCount": 150,
+  "shots": [
+    {
+      "file": "01.webp",
+      "alt": "Make funny dubs with friends: the judge at her neon desk with a gavel"
+    },
+    {
+      "file": "02.webp",
+      "alt": "Pick a scene: the home screen with tonight's scene and scene packs"
+    },
+    {
+      "file": "03.webp",
+      "alt": "Do the voices: the dub screen with the line to say and a waveform"
+    },
+    {
+      "file": "04.webp",
+      "alt": "Get judged: a score with timing, energy and delivery bars"
+    },
+    {
+      "file": "05.webp",
+      "alt": "Share the laughs: the judge celebrates next to a glowing microphone"
+    }
+  ],
+  "fetchedAt": "2026-11-17"
+}

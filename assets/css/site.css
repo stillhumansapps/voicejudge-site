@@ -738,3 +738,32 @@ html.js .try {
   .board li i::after { width: var(--v); }
   .confetti, .try { display: none !important; }
 }
+
+/* App Store rating in the hero (numbers come from data/store.json) */
+.rating { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; font-size: .95rem; color: var(--text); }
+.rating b { font: 800 1rem/1 var(--display); color: var(--gold); }
+.rating small { color: var(--muted); font-size: .85rem; }
+.rating small::before { content: "· "; }
+.stars {
+  font-size: 1.05rem; letter-spacing: 2px; line-height: 1;
+  background: linear-gradient(90deg, var(--gold) calc(var(--r) / 5 * 100%), rgba(255,255,255,.22) calc(var(--r) / 5 * 100%));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero .rating + .meta { margin-top: 10px; }
+
+/* The judge speaks the line: the bubble sits by her, with a tail pointing at her */
+.bubble::after {
+  content: ""; position: absolute; left: -9px; top: 20px;
+  border: 10px solid transparent; border-right-color: #fff; border-left: 0;
+}
+@media (min-width: 900px) {
+  .bubble {
+    left: auto; right: -34px; top: 126px; max-width: 228px;
+    border-radius: 18px; transform: rotate(2deg);
+  }
+  .bubble.swap { transform: rotate(2deg) translateY(6px) scale(.97); }
+  .bubble::after {
+    left: auto; right: 86px; top: auto; bottom: -12px;
+    border: 12px solid transparent; border-top-color: #fff; border-bottom: 0;
+  }
+}
