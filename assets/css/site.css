@@ -486,3 +486,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .ch-judge.desk p { font-size: 1rem; max-width: 340px; }
   .ch-judge.mob { display: none; }
 }
+/* text contrast: white on these pinks is >= 4.6:1 */
+.pill, .cut { background: linear-gradient(135deg, #e0186f, #c2125e); }
+.pill.ghost { background: rgba(255,255,255,.08); }
+.bar .brand b, .brand b { color: var(--pink); }
