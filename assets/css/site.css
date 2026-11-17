@@ -812,3 +812,12 @@ html.js .try {
   .cta .store { padding: 0 8px; gap: 6px; }
   .cta .store strong { font-size: .98rem; }
 }
+
+/* iPhone Safari ignores overflow-x on body alone, so decoration that sticks out past the
+   screen edge (tilted quote band, light beams, the rival share card) let the page pan
+   sideways. Clip at the root and at each section that holds such a piece. */
+html, body { overflow-x: hidden; overflow-x: clip; max-width: 100%; }
+main, .sec, .quotes, .foot { overflow-x: hidden; overflow-x: clip; }
+.quotes { width: 100%; }
+#challenge { overflow: hidden; }
+.confetti { inset: 0; width: 100%; height: 100%; }

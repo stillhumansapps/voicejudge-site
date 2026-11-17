@@ -6,23 +6,28 @@
   "shots": [
     {
       "file": "01.webp",
-      "alt": "Make funny dubs with friends: the judge at her neon desk with a gavel"
+      "alt": "Make funny dubs with friends: the judge at her neon desk with a gavel",
+      "sha256": "2cd935bdc9127154b5a82fd537cc24d470795477f7c36b94c0138002f4cff612"
     },
     {
       "file": "02.webp",
-      "alt": "Pick a scene: the home screen with tonight's scene and scene packs"
+      "alt": "Pick a scene: the home screen with tonight's scene and scene packs",
+      "sha256": "7ede9df52890fbe4b8e7d91c4dbeae1fb6842e6d287bd4f3890d16b95bf5a572"
     },
     {
       "file": "03.webp",
-      "alt": "Do the voices: the dub screen with the line to say and a waveform"
+      "alt": "Do the voices: the dub screen with the line to say and a waveform",
+      "sha256": "0e2892394d258cede5d463eed7a0ca3d9ad7031617cee7ac8320060e47336b34"
     },
     {
       "file": "04.webp",
-      "alt": "Get judged: a score with timing, energy and delivery bars"
+      "alt": "Get judged: a score with timing, energy and delivery bars",
+      "sha256": "7784b197b28b9b2a4598cd1e759ff0570006c5be98f07d6f1e9b20bc80c9bbcb"
     },
     {
       "file": "05.webp",
-      "alt": "Share the laughs: the judge celebrates next to a glowing microphone"
+      "alt": "Share the laughs: the judge celebrates next to a glowing microphone",
+      "sha256": "4dcc7339c76759bc869974bf2c8508bf139b2da6c4db53c0756721e3e8b7f2e9"
     }
   ],
   "fetchedAt": "2026-11-17"

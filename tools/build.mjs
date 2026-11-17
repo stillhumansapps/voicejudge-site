@@ -83,7 +83,7 @@ ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=5">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voice Judge">
 <meta property="og:title" content="${esc(title)}">
@@ -155,7 +155,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=4" defer></script>
+<script src="/assets/js/site.js?v=5" defer></script>
 </body>
 </html>
 `;
@@ -192,7 +192,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=4" defer></script>
+<script src="/assets/js/site.js?v=5" defer></script>
 </body>
 </html>
 `;
