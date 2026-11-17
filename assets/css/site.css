@@ -821,3 +821,10 @@ main, .sec, .quotes, .foot { overflow-x: hidden; overflow-x: clip; }
 .quotes { width: 100%; }
 #challenge { overflow: hidden; }
 .confetti { inset: 0; width: 100%; height: 100%; }
+
+/* The hidden "get the app" bar must be truly gone: iPhone Safari draws the page under its
+   own bottom bar, so a bar that was only pushed down still showed through there. */
+@media (max-width: 760px) {
+  .sticky-cta { opacity: 0; visibility: hidden; transform: translateY(40px); transition: transform .3s cubic-bezier(.2, .8, .2, 1), opacity .25s ease, visibility 0s linear .3s; bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .sticky-cta.on { opacity: 1; visibility: visible; transform: none; transition: transform .3s cubic-bezier(.2, .8, .2, 1), opacity .25s ease, visibility 0s; }
+}
