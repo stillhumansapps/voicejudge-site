@@ -1,0 +1,362 @@
+[
+  {
+    "id": "performance_review",
+    "code": "K2",
+    "title": "The Performance Review",
+    "characters": "Duchess",
+    "note": "Bored and disappointed, like a boss who has seen it all.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "three_am_meeting",
+    "code": "K1",
+    "title": "The 3 A.M. Meeting",
+    "characters": "Biscuit",
+    "note": "Cold and formal, like a strict boss.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "not_the_park",
+    "code": "D2",
+    "title": "This Is Not the Park",
+    "characters": "Peanut",
+    "note": "Betrayed, then instantly bought off.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "closed_door",
+    "code": "K3",
+    "title": "The Closed Door",
+    "characters": "Milo",
+    "note": "Full panic, then instant boredom.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "did_you_say_walk",
+    "code": "D3",
+    "title": "Did You Say Walk",
+    "characters": "Rocket",
+    "note": "Explosive hype, then a full retreat.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "hes_home",
+    "code": "P1",
+    "title": "He's Home",
+    "characters": "Buddy & Queenie",
+    "note": "Dog: pure joy. Cat: totally flat.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "the_gift",
+    "code": "K4",
+    "title": "The Gift",
+    "characters": "Shadow",
+    "note": "Solemn and heroic, about a sock.",
+    "pack": "Pets Talk Back",
+    "pro": false
+  },
+  {
+    "id": "mail_carrier",
+    "code": "D1",
+    "title": "The Mail Carrier",
+    "characters": "Sarge",
+    "note": "Gravelly, like an old war veteran.",
+    "pack": "Pets Talk Back",
+    "pro": true
+  },
+  {
+    "id": "the_keyboard",
+    "code": "K5",
+    "title": "The Keyboard",
+    "characters": "Olive",
+    "note": "Sweet at first, then smug.",
+    "pack": "Pets Talk Back",
+    "pro": true
+  },
+  {
+    "id": "not_begging",
+    "code": "D4",
+    "title": "I'm Not Begging",
+    "characters": "Potato",
+    "note": "Fake calm, deeply tragic.",
+    "pack": "Pets Talk Back",
+    "pro": true
+  },
+  {
+    "id": "last_slice",
+    "code": null,
+    "title": "The Last Slice",
+    "characters": "Danny",
+    "note": "Dead serious, like an action hero guarding treasure.",
+    "pack": "Make Them Laugh",
+    "pro": false
+  },
+  {
+    "id": "five_more_minutes",
+    "code": null,
+    "title": "Five More Minutes",
+    "characters": "Maya",
+    "note": "Groan, then go full hero, then melt back to sleep.",
+    "pack": "Make Them Laugh",
+    "pro": false
+  },
+  {
+    "id": "group_chat",
+    "code": null,
+    "title": "She Left the Group Chat",
+    "characters": "Jay",
+    "note": "Pure disaster-movie panic over a group chat.",
+    "pack": "Make Them Laugh",
+    "pro": true
+  },
+  {
+    "id": "christmas_socks",
+    "code": null,
+    "title": "Christmas Morning",
+    "characters": "Maya & Timmy",
+    "note": "",
+    "pack": "Make Them Laugh",
+    "pro": true
+  },
+  {
+    "id": "cushion_crisis",
+    "code": null,
+    "title": "The Cushion Crisis",
+    "characters": "Chloe & Mark",
+    "note": "",
+    "pack": "Make Them Laugh",
+    "pro": false
+  },
+  {
+    "id": "parking_spot",
+    "code": null,
+    "title": "The Parking Spot",
+    "characters": "Sam & Leo",
+    "note": "",
+    "pack": "Make Them Laugh",
+    "pro": false
+  },
+  {
+    "id": "sitcom_kitchen",
+    "code": null,
+    "title": "Sitcom Kitchen",
+    "characters": "Dana & Ray",
+    "note": "Outraged, then totally unbothered.",
+    "pack": "Make Them Laugh",
+    "pro": false
+  },
+  {
+    "id": "dont_get_on_that_plane",
+    "code": null,
+    "title": "Don't Get on That Plane",
+    "characters": "Elena",
+    "note": "Out of breath, then tears, then a hopeful smile.",
+    "pack": "Break Their Heart",
+    "pro": false
+  },
+  {
+    "id": "i_ran_the_whole_way",
+    "code": null,
+    "title": "I Ran the Whole Way",
+    "characters": "Noah",
+    "note": "Breathless and charming, then serious, then hopeful.",
+    "pack": "Break Their Heart",
+    "pro": true
+  },
+  {
+    "id": "airport_confession",
+    "code": null,
+    "title": "The Airport Confession",
+    "characters": "June & Leo",
+    "note": "Breathless, then betrayed.",
+    "pack": "Break Their Heart",
+    "pro": true
+  },
+  {
+    "id": "onboarding_demo",
+    "code": null,
+    "title": "Out of the Sunlight",
+    "characters": "Mira & Kai",
+    "note": "Whisper it like you just figured out his secret.",
+    "pack": "Break Their Heart",
+    "pro": false
+  },
+  {
+    "id": "dry_cleaner",
+    "code": null,
+    "title": "The Dry Cleaner",
+    "characters": "Clara & Julian",
+    "note": "",
+    "pack": "Break Their Heart",
+    "pro": false
+  },
+  {
+    "id": "soap_opera_twist",
+    "code": null,
+    "title": "The Soap Opera Twist",
+    "characters": "Valentina & Isabel",
+    "note": "Maximum drama.",
+    "pack": "Break Their Heart",
+    "pro": true
+  },
+  {
+    "id": "halftime_speech",
+    "code": null,
+    "title": "The Halftime Speech",
+    "characters": "Coach Brennan",
+    "note": "Start quiet, build slowly, then explode on the last line.",
+    "pack": "Hero Moments",
+    "pro": false
+  },
+  {
+    "id": "the_rooftop",
+    "code": null,
+    "title": "The Rooftop",
+    "characters": "Kane",
+    "note": "Hero-movie serious all the way, then panic about the oven.",
+    "pack": "Hero Moments",
+    "pro": false
+  },
+  {
+    "id": "last_stand",
+    "code": null,
+    "title": "The Last Stand",
+    "characters": "Captain Rhea",
+    "note": "Grim, then a half-smile.",
+    "pack": "Hero Moments",
+    "pro": true
+  },
+  {
+    "id": "heist_plan",
+    "code": null,
+    "title": "The Heist Plan",
+    "characters": "Vinnie",
+    "note": "Low and deadly serious.",
+    "pack": "Hero Moments",
+    "pro": true
+  },
+  {
+    "id": "houston_small_problem",
+    "code": null,
+    "title": "Houston, Small Problem",
+    "characters": "Commander Okafor",
+    "note": "Forced calm over the radio.",
+    "pack": "Hero Moments",
+    "pro": false
+  },
+  {
+    "id": "courtroom_twist",
+    "code": null,
+    "title": "The Courtroom Twist",
+    "characters": "Attorney Grant & Witness",
+    "note": "Big reveal energy.",
+    "pack": "Hero Moments",
+    "pro": true
+  },
+  {
+    "id": "watch_me_shine",
+    "code": null,
+    "title": "Now Watch Me Shine",
+    "characters": "Hikari",
+    "note": "Start low, then power all the way up.",
+    "pack": "Anime Moments",
+    "pro": false
+  },
+  {
+    "id": "rival_returns",
+    "code": null,
+    "title": "The Rival Returns",
+    "characters": "Ren & Sora",
+    "note": "Ren: all fire. Sora: totally flat.",
+    "pack": "Anime Moments",
+    "pro": true
+  },
+  {
+    "id": "final_exam",
+    "code": null,
+    "title": "The Final Exam",
+    "characters": "Hina",
+    "note": "Whisper, explode with joy, then deflate.",
+    "pack": "Anime Moments",
+    "pro": false
+  },
+  {
+    "id": "ramen_vow",
+    "code": null,
+    "title": "The Ramen Vow",
+    "characters": "Tetsu",
+    "note": "Epic hero voice, then a tiny squeak.",
+    "pack": "Anime Moments",
+    "pro": false
+  },
+  {
+    "id": "mentors_lesson",
+    "code": null,
+    "title": "The Mentor's Lesson",
+    "characters": "Master Togo",
+    "note": "Slow, deep and wise, then totally deadpan.",
+    "pack": "Anime Moments",
+    "pro": false
+  },
+  {
+    "id": "station_confession",
+    "code": null,
+    "title": "The Station Confession",
+    "characters": "Aoi & Haru",
+    "note": "Aoi: shy, then pure joy at the dog.",
+    "pack": "Anime Moments",
+    "pro": true
+  },
+  {
+    "id": "dragon_battle",
+    "code": null,
+    "title": "Power Overload",
+    "characters": "Ryuga & Mika",
+    "note": "",
+    "pack": "Anime Moments",
+    "pro": false
+  },
+  {
+    "id": "fiery_blast",
+    "code": null,
+    "title": "The Fiery Blast",
+    "characters": "Kai & Rina",
+    "note": "",
+    "pack": "Anime Moments",
+    "pro": true
+  },
+  {
+    "id": "confessional",
+    "code": null,
+    "title": "The Confessional",
+    "characters": "Tasha",
+    "note": "Fierce first, then melt.",
+    "pack": "TV Voices",
+    "pro": true
+  },
+  {
+    "id": "cooking_judge",
+    "code": null,
+    "title": "The Cooking Judge",
+    "characters": "Chef Marco",
+    "note": "Disgusted, then betrayed by the taste.",
+    "pack": "TV Voices",
+    "pro": false
+  },
+  {
+    "id": "nature_documentary",
+    "code": null,
+    "title": "Nature Documentary",
+    "characters": "Narrator",
+    "note": "Hushed and refined.",
+    "pack": "TV Voices",
+    "pro": false
+  }
+]
