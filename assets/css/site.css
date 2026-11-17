@@ -767,3 +767,48 @@ html.js .try {
     border: 12px solid transparent; border-top-color: #fff; border-bottom: 0;
   }
 }
+
+/* ---------- v3: generated stage art behind the hero, the scenes and the final call ---------- */
+.hero.stage {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 26, .95) 0%, rgba(7, 8, 26, .80) 36%, rgba(7, 8, 26, .30) 68%, rgba(7, 8, 26, .50) 100%),
+    linear-gradient(180deg, rgba(7, 8, 26, .55) 0%, rgba(7, 8, 26, 0) 22%, rgba(7, 8, 26, 0) 62%, var(--bg-deep) 100%),
+    url("/assets/img/art/stage.webp") 78% 50% / cover no-repeat,
+    var(--bg-deep);
+}
+.hero.stage::before { display: none; }
+.hero .beams { opacity: .38; mix-blend-mode: screen; }
+.hero .beams i { filter: blur(22px); }
+@media (max-width: 899px) {
+  .hero.stage {
+    background:
+      linear-gradient(180deg, rgba(7, 8, 26, .88) 0%, rgba(7, 8, 26, .80) 40%, rgba(7, 8, 26, .45) 70%, var(--bg-deep) 100%),
+      url("/assets/img/art/stage-sm.webp") 70% 100% / auto 62% no-repeat,
+      var(--bg-deep);
+  }
+}
+
+.cta {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 26, .93) 0%, rgba(7, 8, 26, .70) 45%, rgba(7, 8, 26, .12) 78%),
+    linear-gradient(180deg, rgba(7, 8, 26, 0) 60%, rgba(7, 8, 26, .65) 100%),
+    url("/assets/img/art/crowd.webp") 60% 50% / cover no-repeat,
+    var(--bg-mid);
+}
+.cta::before { display: none; }
+@media (min-width: 860px) { .cta { min-height: 470px; } }
+@media (max-width: 859px) {
+  .cta {
+    background:
+      linear-gradient(180deg, rgba(7, 8, 26, .90) 0%, rgba(7, 8, 26, .72) 55%, rgba(7, 8, 26, .15) 100%),
+      url("/assets/img/art/crowd-sm.webp") 50% 100% / cover no-repeat,
+      var(--bg-mid);
+  }
+}
+.store strong, .store small { white-space: nowrap; }
+@media (max-width: 520px) {
+  .rating { font-size: .86rem; gap: 6px; }
+  .rating small { font-size: .8rem; }
+  .cta .store { padding: 0 8px; gap: 6px; }
+  .cta .store strong { font-size: .98rem; }
+}
