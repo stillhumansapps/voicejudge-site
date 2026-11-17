@@ -18,9 +18,11 @@
 </head>
 <body>
 {{HEADER}}
+<div class="progress" aria-hidden="true"></div>
 <main id="main">
 
 <section class="hero stage" aria-labelledby="hero-title">
+  <div class="beams" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
     <div class="copy">
       <span class="kicker">The scene dubbing party game</span>
@@ -31,6 +33,7 @@
     </div>
 
     <div class="show" aria-label="Voice Judge in action">
+      <canvas class="confetti" data-confetti aria-hidden="true"></canvas>
       <span class="spark" style="left:6%;top:18%" aria-hidden="true">✦</span>
       <span class="spark" style="right:10%;top:4%;animation-delay:.8s;color:var(--pink)" aria-hidden="true">✦</span>
       <span class="spark" style="left:14%;bottom:12%;animation-delay:1.6s;color:var(--cyan)" aria-hidden="true">✦</span>
@@ -49,14 +52,14 @@
             <i style="animation-delay:-.1s"></i><i style="animation-delay:-.5s"></i><i style="animation-delay:-.3s"></i><i style="animation-delay:-.9s"></i><i style="animation-delay:-.2s"></i><i style="animation-delay:-.7s"></i><i style="animation-delay:-.4s"></i><i style="animation-delay:-1s"></i><i style="animation-delay:-.6s"></i><i style="animation-delay:-.15s"></i><i style="animation-delay:-.85s"></i><i style="animation-delay:-.35s"></i><i style="animation-delay:-.75s"></i><i style="animation-delay:-.25s"></i><i style="animation-delay:-.55s"></i><i style="animation-delay:-.95s"></i><i style="animation-delay:-.45s"></i><i style="animation-delay:-.05s"></i>
           </div>
           <div class="timeline" aria-hidden="true"><span></span></div>
-          <p class="cut">Cut! Judge my dub</p>
+          <button type="button" class="cut" data-judge>Cut! Judge my dub</button>
           <div class="verdict">
             <p class="says">THE JUDGE SAYS</p>
             <p class="score"><span data-count="87">87</span></p>
             <div class="bars">
-              <div>Timing<span style="--v:91%"></span><b>91</b></div>
-              <div>Words<span style="--v:84%"></span><b>84</b></div>
-              <div>Delivery<span style="--v:86%"></span><b>86</b></div>
+              <div data-bar>Timing<span style="--v:91%"></span><b>91</b></div>
+              <div data-bar>Words<span style="--v:84%"></span><b>84</b></div>
+              <div data-bar>Delivery<span style="--v:86%"></span><b>86</b></div>
             </div>
           </div>
         </div>
@@ -65,8 +68,10 @@
         <source srcset="/assets/img/judge/point.avif" type="image/avif">
         <img class="judge" src="/assets/img/judge/point.webp" width="447" height="760" alt="The Voice Judge: a cheerful blue-haired judge in a black robe and headphones, pointing with her gavel" fetchpriority="high">
       </picture>
+      <p class="try" aria-hidden="true">Tap the pink button. See what the judge says.</p>
     </div>
   </div>
+  <div class="bulbs" aria-hidden="true"></div>
 </section>
 
 <section class="quotes" aria-label="Things the judge says">
@@ -120,16 +125,25 @@
       <span class="eyebrow">Made for game night</span>
       <h2 id="features-title">One phone. The whole crew. <em>No mercy.</em></h2>
     </div>
-    <div class="features">
-      <article class="feature hot reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF3D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.4 3-5.4 6-5.4s5.4 2 6 5.4"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.7c2.4.2 4 1.8 4.5 4.6"/></svg></div>
-        <h3>Party mode</h3>
-        <p>Pass the phone, up to 4 players. Pick the rounds and scenes, take turns on the mic, and the judge crowns the winner on the casting results board.</p>
+    <div class="bento">
+      <article class="feature hot party reveal">
+        <div class="ftxt">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF3D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.4 3-5.4 6-5.4s5.4 2 6 5.4"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.7c2.4.2 4 1.8 4.5 4.6"/></svg></div>
+          <h3>Party mode</h3>
+          <p>Pass the phone, up to 4 players. Pick the rounds and scenes, take turns on the mic, and the judge crowns the winner on the casting results board.</p>
+        </div>
+        <ol class="board" aria-hidden="true">
+          <li class="win"><span>&#128081;</span><b>Maya</b><i style="--v:94%"></i><em>94</em></li>
+          <li><span>2</span><b>Leo</b><i style="--v:86%"></i><em>86</em></li>
+          <li><span>3</span><b>Sam</b><i style="--v:71%"></i><em>71</em></li>
+          <li><span>4</span><b>Grandma</b><i style="--v:58%"></i><em>58</em></li>
+        </ol>
       </article>
-      <article class="feature reveal">
+      <article class="feature judgecard reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FFD54F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20h8"/><path d="m13.5 4.5 6 6"/><path d="m9 9 6-6 6 6-6 6z"/><path d="M12 12 4 20"/></svg></div>
         <h3>A fair (and funny) judge</h3>
         <p>Scores for timing, words and delivery, plus a verdict line and a tip on what to try next. Every take gets a laugh.</p>
+        <div class="mini-verdict" aria-hidden="true"><b>88</b><span>&ldquo;Illegal levels of talent. I'm calling someone.&rdquo;</span></div>
       </article>
       <article class="feature reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#3BE8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
@@ -146,10 +160,10 @@
         <h3>Replay, save and share</h3>
         <p>Replay your last take, then save your dub as a video and send it to friends. Saving comes with Judge Pro, or unlock a save with a short ad.</p>
       </article>
-      <article class="feature reveal">
+      <article class="feature strip reveal">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF3D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-        <h3>Private by design</h3>
-        <p>No account. Your voice is judged on the phone, and your takes and imported clips stay on your device.</p>
+        <div><h3>Private by design</h3>
+        <p>No account. Your voice is judged on the phone, and your takes and imported clips stay on your device.</p></div>
       </article>
     </div>
     <p class="pro-note reveal"><b>Judge Pro</b> (optional): ad-free rounds, save dubbed videos to Photos and import clips up to 3 minutes. The core game is free.</p>
@@ -174,11 +188,21 @@
 
 <section class="sec stage" id="challenge" aria-labelledby="challenge-title">
   <div class="wrap duel">
-    <div class="share-card reveal" aria-hidden="true">
-      <div class="top"><img src="/assets/img/judge/point-sm.webp" width="212" height="360" alt="" loading="lazy"><p>&ldquo;Pure drama. I felt that in my wig.&rdquo;</p></div>
-      <div class="still"><img src="/assets/img/scenes/closed_door-sm.webp" width="480" height="270" alt="" loading="lazy"><span class="badge87">87</span></div>
-      <div class="vs"><div><small>Me</small><strong>87</strong></div><span>VS</span><div class="you"><small>You</small><strong>??</strong></div></div>
-      <p class="beat">Beat me: <span>voicejudge.app/c/K3</span></p>
+    <div class="share-duo reveal" aria-hidden="true">
+      <div class="share-card ghost">
+        <div class="top"><img src="/assets/img/judge/listen-sm.webp" width="185" height="360" alt="" loading="lazy"><p>&ldquo;Your turn. I'm listening.&rdquo;</p></div>
+        <div class="still"><img src="/assets/img/scenes/closed_door-sm.webp" width="480" height="270" alt="" loading="lazy"></div>
+        <div class="vs"><div><small>Me</small><strong>??</strong></div><span>VS</span><div class="you"><small>You</small><strong>87</strong></div></div>
+      </div>
+      <div class="share-card main">
+        <div class="top"><img src="/assets/img/judge/point-sm.webp" width="212" height="360" alt="" loading="lazy"><p>&ldquo;Pure drama. I felt that in my wig.&rdquo;</p></div>
+        <div class="still"><img src="/assets/img/scenes/closed_door-sm.webp" width="480" height="270" alt="" loading="lazy"><span class="badge87">87</span></div>
+        <div class="vs"><div><small>Me</small><strong>87</strong></div><span>VS</span><div class="you"><small>You</small><strong>??</strong></div></div>
+        <p class="beat">Beat me: <span>voicejudge.app/c/K3</span></p>
+        <div class="wave sc-wave" data-wave="26"></div>
+        <p class="sc-logo">VOICE <b>JUDGE</b></p>
+      </div>
+      <span class="vs-burst">VS</span>
     </div>
     <div class="reveal">
       <div class="sec-head" style="margin-bottom:0">
@@ -199,6 +223,7 @@
 <section class="sec" id="get" aria-labelledby="get-title">
   <div class="wrap">
     <div class="cta reveal">
+      <div class="bulbs" aria-hidden="true"></div>
       <div class="txt">
         <h2 id="get-title">Your turn on the mic.</h2>
         <p>Free on iPhone and Android. Grab your friends, pick a scene and let the judge sort it out.</p>
@@ -213,7 +238,8 @@
 </section>
 
 </main>
+<a class="sticky-cta" href="#get" data-sticky><span>Get Voice Judge</span><b>Free</b></a>
 {{FOOTER}}
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v=2" defer></script>
 </body>
 </html>
