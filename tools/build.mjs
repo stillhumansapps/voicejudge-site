@@ -76,14 +76,14 @@ const head = ({ title, description, path, image, imageAlt, robots = 'index,follo
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <meta name="robots" content="${robots}">
-<meta name="theme-color" content="#07081A">
+<meta name="theme-color" content="#6A3FE0">
 <meta name="color-scheme" content="dark">
 ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=6">
+<link rel="preload" href="/assets/fonts/baloo2-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voice Judge">
 <meta property="og:title" content="${esc(title)}">
