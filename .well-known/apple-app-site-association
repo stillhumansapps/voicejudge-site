@@ -3,14 +3,426 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["89T79RTJ37.com.mindblows.voicejudge"],
+        "appIDs": [
+          "89T79RTJ37.com.mindblows.voicejudge"
+        ],
         "components": [
-          { "/": "/j/*", "comment": "Online room invite: /j/ROOMCODE opens the app on the room" }
+          {
+            "/": "/j/*",
+            "comment": "Online room invite: /j/ROOMCODE opens the app on the room"
+          },
+          {
+            "/": "/K2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/P1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/P1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K5",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/K5/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/D4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L5",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L5/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L6",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L6/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L7",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/L7/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B5",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B5/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B6",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/B6/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H5",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H5/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H6",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/H6/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A4",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A4/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A5",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A5/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A6",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A6/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A7",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A7/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A8",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/A8/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T1",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T1/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T2",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T2/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T3",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/T3/",
+            "comment": "Challenge link from a shared dub video"
+          },
+          {
+            "/": "/c/*",
+            "comment": "Older challenge links: /c/K3 or /c/<scene id>"
+          }
         ]
       },
       {
         "appID": "89T79RTJ37.com.mindblows.voicejudge",
-        "paths": ["/j/*"]
+        "paths": [
+          "/j/*",
+          "/K2",
+          "/K2/",
+          "/K1",
+          "/K1/",
+          "/D2",
+          "/D2/",
+          "/K3",
+          "/K3/",
+          "/D3",
+          "/D3/",
+          "/P1",
+          "/P1/",
+          "/K4",
+          "/K4/",
+          "/D1",
+          "/D1/",
+          "/K5",
+          "/K5/",
+          "/D4",
+          "/D4/",
+          "/L1",
+          "/L1/",
+          "/L2",
+          "/L2/",
+          "/L3",
+          "/L3/",
+          "/L4",
+          "/L4/",
+          "/L5",
+          "/L5/",
+          "/L6",
+          "/L6/",
+          "/L7",
+          "/L7/",
+          "/B1",
+          "/B1/",
+          "/B2",
+          "/B2/",
+          "/B3",
+          "/B3/",
+          "/B4",
+          "/B4/",
+          "/B5",
+          "/B5/",
+          "/B6",
+          "/B6/",
+          "/H1",
+          "/H1/",
+          "/H2",
+          "/H2/",
+          "/H3",
+          "/H3/",
+          "/H4",
+          "/H4/",
+          "/H5",
+          "/H5/",
+          "/H6",
+          "/H6/",
+          "/A1",
+          "/A1/",
+          "/A2",
+          "/A2/",
+          "/A3",
+          "/A3/",
+          "/A4",
+          "/A4/",
+          "/A5",
+          "/A5/",
+          "/A6",
+          "/A6/",
+          "/A7",
+          "/A7/",
+          "/A8",
+          "/A8/",
+          "/T1",
+          "/T1/",
+          "/T2",
+          "/T2/",
+          "/T3",
+          "/T3/",
+          "/c/*"
+        ]
       }
     ]
   }

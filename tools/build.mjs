@@ -267,6 +267,29 @@ for (const s of scenes) {
   }
 }
 writeFileSync(join(ROOT, '404.html'), notFoundPage());
+
+// Universal links (iOS): invites (/j/CODE) and challenge links (/K3, the older /c/...) open the app.
+// One path per short code, so the site's other pages stay in Safari. The Android app lists the
+// same paths in its App Link filter; assetlinks.json is domain-wide.
+const appId = '89T79RTJ37.com.mindblows.voicejudge';
+const challengePaths = scenes.flatMap((s) => [`/${s.code}`, `/${s.code}/`]);
+const aasa = {
+  applinks: {
+    apps: [],
+    details: [
+      {
+        appIDs: [appId],
+        components: [
+          { '/': '/j/*', comment: 'Online room invite: /j/ROOMCODE opens the app on the room' },
+          ...challengePaths.map((path) => ({ '/': path, comment: 'Challenge link from a shared dub video' })),
+          { '/': '/c/*', comment: 'Older challenge links: /c/K3 or /c/<scene id>' },
+        ],
+      },
+      { appID: appId, paths: ['/j/*', ...challengePaths, '/c/*'] },
+    ],
+  },
+};
+writeFileSync(join(ROOT, '.well-known/apple-app-site-association'), JSON.stringify(aasa, null, 2) + '\n');
 writeFileSync(join(ROOT, 'index.html'), landing());
 
 const today = new Date().toISOString().slice(0, 10);
