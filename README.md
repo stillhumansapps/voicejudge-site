@@ -15,7 +15,7 @@ every page is committed.
 | `.well-known/assetlinks.json` | Android App Links |
 | `.well-known/apple-app-site-association` | iOS universal links |
 | `CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml` | Hosting files |
-| `assets/` | CSS, JS, self-hosted Unbounded fonts (woff2 subset), images, hero video |
+| `assets/` | CSS, JS, self-hosted Baloo 2 heading font (woff2, OFL licence in `assets/fonts/OFL-Baloo2.txt`), images, hero video |
 | `data/scenes.json` | Scene catalog copied from the app repo (input for the generator) |
 | `site.config.json` | Store URLs, legal links, support email: the one place to change them |
 | `tools/build.mjs` | Page generator (Node 18+, no dependencies) |

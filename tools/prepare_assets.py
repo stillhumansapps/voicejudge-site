@@ -12,6 +12,7 @@ Writes: assets/img/**, assets/fonts/*.woff2, assets/video/*, data/scenes.json,
 favicon files at the site root.
 """
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -50,22 +51,17 @@ def save_avif(im, path, q=55):
     im.save(path, "AVIF", quality=q)
 
 
-# ---------- fonts: Unbounded subset to basic Latin -> woff2 ----------
+# ---------- fonts: Baloo 2 (the app's heading font, already a Latin subset) -> woff2 ----------
 def fonts():
-    from fontTools import subset
+    from fontTools.ttLib import TTFont
 
     src = APP / "shared/src/commonMain/composeResources/font"
-    text = "".join(chr(c) for c in range(0x20, 0x7F)) + "’‘“”–—…·×•©™"
-    for name, out in (("unbounded_extrabold.ttf", "unbounded-800.woff2"), ("unbounded_semibold.ttf", "unbounded-600.woff2")):
-        opts = subset.Options()
-        opts.flavor = "woff2"
-        opts.layout_features = ["kern", "liga"]
-        opts.name_IDs = ["*"]
-        font = subset.load_font(str(src / name), opts)
-        sub = subset.Subsetter(opts)
-        sub.populate(text=text)
-        sub.subset(font)
-        subset.save_font(font, str(FONTS / out), opts)
+    # Kept whole (not cut to basic Latin): the room invite page (/j/) also shows German, Spanish and French.
+    for name, out in (("baloo2_extrabold.ttf", "baloo2-800.woff2"), ("baloo2_semibold.ttf", "baloo2-600.woff2")):
+        font = TTFont(str(src / name))
+        font.flavor = "woff2"
+        font.save(str(FONTS / out))
+    shutil.copyfile(APP / "licenses/OFL-Baloo2.txt", FONTS / "OFL-Baloo2.txt")
 
 
 # ---------- judge character ----------
