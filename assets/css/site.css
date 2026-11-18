@@ -291,7 +291,8 @@ html.js .try {
 @media (max-width: 899px) {
   .show { padding-top: 150px; min-height: 0; }
   .show .judge { top: 0; left: 0; right: auto; bottom: auto; width: 118px; max-width: none; z-index: 1; }
-  .bubble { top: 26px; left: 112px; right: 0; max-width: none; }
+  /* fill the space beside her on phones, but not wider than a speech bubble on tablets */
+  .bubble { top: 26px; left: 112px; right: auto; width: calc(100% - 112px); max-width: 300px; }
 }
 
 /* App Store rating in the hero (numbers come from data/store.json) */
