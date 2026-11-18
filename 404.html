@@ -29,15 +29,15 @@
 <meta name="twitter:image" content="https://voicejudge.app/assets/img/og/og-main.jpg">
 <script>document.documentElement.classList.add('js')</script>
 <script>
-// Links copied from a video may have the wrong case (/c/k3) or a trailing dot. GitHub Pages is
-// case-sensitive, so find the real page and go there.
+// Links typed from a video may have the wrong case (/k3), a trailing dot, or the old /c/ form
+// with a scene id (/c/closed_door). GitHub Pages is case-sensitive, so find the real page.
 (function () {
-  var map = {"performance_review":"performance_review","k2":"K2","three_am_meeting":"three_am_meeting","k1":"K1","not_the_park":"not_the_park","d2":"D2","closed_door":"closed_door","k3":"K3","did_you_say_walk":"did_you_say_walk","d3":"D3","hes_home":"hes_home","p1":"P1","the_gift":"the_gift","k4":"K4","mail_carrier":"mail_carrier","d1":"D1","the_keyboard":"the_keyboard","k5":"K5","not_begging":"not_begging","d4":"D4","last_slice":"last_slice","five_more_minutes":"five_more_minutes","group_chat":"group_chat","christmas_socks":"christmas_socks","cushion_crisis":"cushion_crisis","parking_spot":"parking_spot","sitcom_kitchen":"sitcom_kitchen","dont_get_on_that_plane":"dont_get_on_that_plane","i_ran_the_whole_way":"i_ran_the_whole_way","airport_confession":"airport_confession","onboarding_demo":"onboarding_demo","dry_cleaner":"dry_cleaner","soap_opera_twist":"soap_opera_twist","halftime_speech":"halftime_speech","the_rooftop":"the_rooftop","last_stand":"last_stand","heist_plan":"heist_plan","houston_small_problem":"houston_small_problem","courtroom_twist":"courtroom_twist","watch_me_shine":"watch_me_shine","rival_returns":"rival_returns","final_exam":"final_exam","ramen_vow":"ramen_vow","mentors_lesson":"mentors_lesson","station_confession":"station_confession","dragon_battle":"dragon_battle","fiery_blast":"fiery_blast","confessional":"confessional","cooking_judge":"cooking_judge","nature_documentary":"nature_documentary"};
-  var m = /^\/c\/([^\/]+)\/?$/i.exec(location.pathname);
+  var map = {"performance_review":"K2","k2":"K2","three_am_meeting":"K1","k1":"K1","not_the_park":"D2","d2":"D2","closed_door":"K3","k3":"K3","did_you_say_walk":"D3","d3":"D3","hes_home":"P1","p1":"P1","the_gift":"K4","k4":"K4","mail_carrier":"D1","d1":"D1","the_keyboard":"K5","k5":"K5","not_begging":"D4","d4":"D4","last_slice":"L1","l1":"L1","five_more_minutes":"L2","l2":"L2","group_chat":"L3","l3":"L3","christmas_socks":"L4","l4":"L4","cushion_crisis":"L5","l5":"L5","parking_spot":"L6","l6":"L6","sitcom_kitchen":"L7","l7":"L7","dont_get_on_that_plane":"B1","b1":"B1","i_ran_the_whole_way":"B2","b2":"B2","airport_confession":"B3","b3":"B3","onboarding_demo":"B4","b4":"B4","dry_cleaner":"B5","b5":"B5","soap_opera_twist":"B6","b6":"B6","halftime_speech":"H1","h1":"H1","the_rooftop":"H2","h2":"H2","last_stand":"H3","h3":"H3","heist_plan":"H4","h4":"H4","houston_small_problem":"H5","h5":"H5","courtroom_twist":"H6","h6":"H6","watch_me_shine":"A1","a1":"A1","rival_returns":"A2","a2":"A2","final_exam":"A3","a3":"A3","ramen_vow":"A4","a4":"A4","mentors_lesson":"A5","a5":"A5","station_confession":"A6","a6":"A6","dragon_battle":"A7","a7":"A7","fiery_blast":"A8","a8":"A8","confessional":"T1","t1":"T1","cooking_judge":"T2","t2":"T2","nature_documentary":"T3","t3":"T3"};
+  var m = /^\/(?:c\/)?([^\/]+)\/?$/i.exec(location.pathname);
   if (!m) return;
   var key = decodeURIComponent(m[1]).toLowerCase().replace(/[^a-z0-9_-]+$/, '');
   var hit = map[key];
-  if (hit && hit !== m[1]) location.replace('/c/' + hit + '/' + location.search);
+  if (hit) location.replace('/' + hit + '/' + location.search);
 })();
 </script>
 </head>

@@ -2,7 +2,7 @@
 // Builds the static site from site.config.json, data/scenes.json and src/index.html.
 // No dependencies:  node tools/build.mjs
 // Writes: index.html, c/<id>/index.html, 404.html, sitemap.xml
-import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { qrSvg } from './qr.mjs';
@@ -99,19 +99,21 @@ ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <meta name="twitter:image" content="${SITE}${image}">
 <script>document.documentElement.classList.add('js')</script>`;
 
-// Canonical public id: short code (K3) for scenes that have one, else the app's scene id.
-const publicId = (s) => s.code || s.id;
+// Canonical public id: the scene's short code (K3). Every scene has one; the app burns
+// voicejudge.app/<code> into shared videos, so codes never change once released.
+const publicId = (s) => s.code;
+for (const s of scenes) if (!/^[A-Z][0-9]{1,2}$/.test(s.code || '')) throw new Error(`Scene ${s.id} needs a short code like K3`);
 // Every lowercase alias -> real page folder. 404.html uses it to fix the case of typed links.
 const aliasMap = {};
 for (const s of scenes) {
-  aliasMap[s.id.toLowerCase()] = s.id;
-  if (s.code) aliasMap[s.code.toLowerCase()] = s.code;
+  aliasMap[s.id.toLowerCase()] = s.code;
+  aliasMap[s.code.toLowerCase()] = s.code;
 }
 
 // ---------- challenge page ----------
 function challengePage(s, folder) {
   const pid = publicId(s);
-  const url = `${SITE}/c/${pid}`;
+  const url = `${SITE}/${pid}`;
   const title = `Can you beat my dub? ${s.title} | Voice Judge`;
   const description = `Your friend dubbed "${s.title}" in Voice Judge. Download the free party game, dub the same scene and see if the judge scores you higher.`;
   const qr = qrSvg(url, { label: `QR code that opens ${url}` });
@@ -119,7 +121,7 @@ function challengePage(s, folder) {
   return `<!doctype html>
 <html lang="en">
 <head>
-${head({ title, description, path: `/c/${pid}/`, image: `/assets/img/og/${s.id}.jpg`, imageAlt: `${s.title}: a scene from Voice Judge. Can you beat me?` })}
+${head({ title, description, path: `/${pid}/`, image: `/assets/img/og/${s.id}.jpg`, imageAlt: `${s.title}: a scene from Voice Judge. Can you beat me?` })}
 </head>
 <body class="stage">
 ${header(false)}
@@ -141,7 +143,7 @@ ${header(false)}
       ${stores()}
       <!-- Universal link / App Link hook: this is the same https URL. Once the iOS app has
            "applinks:voicejudge.app" and the Android app has a verified intent filter for
-           https://voicejudge.app/c/*, opening this link on a phone with the app goes to the scene.
+           the short links (https://voicejudge.app/K3), opening this link on a phone with the app goes to the scene.
            No custom URL scheme on purpose. -->
       <a class="pill ghost big open-app" href="${url}" data-app-link data-scene="${esc(s.id)}">Already have the app? Open the scene</a>
       <div class="qr-box">${qr}<p><b>On a computer?</b>Scan with your phone camera to open this challenge there.</p></div>
@@ -168,15 +170,15 @@ function notFoundPage() {
 <head>
 ${head({ title: 'Scene not found | Voice Judge', description: 'This page is not here, but the party is. Get Voice Judge and dub a scene.', path: '/404', image: '/assets/img/og/og-main.jpg', imageAlt: 'Voice Judge: dub the scene, get judged', robots: 'noindex', canonical: false })}
 <script>
-// Links copied from a video may have the wrong case (/c/k3) or a trailing dot. GitHub Pages is
-// case-sensitive, so find the real page and go there.
+// Links typed from a video may have the wrong case (/k3), a trailing dot, or the old /c/ form
+// with a scene id (/c/closed_door). GitHub Pages is case-sensitive, so find the real page.
 (function () {
   var map = ${JSON.stringify(aliasMap)};
-  var m = /^\\/c\\/([^\\/]+)\\/?$/i.exec(location.pathname);
+  var m = /^\\/(?:c\\/)?([^\\/]+)\\/?$/i.exec(location.pathname);
   if (!m) return;
   var key = decodeURIComponent(m[1]).toLowerCase().replace(/[^a-z0-9_-]+$/, '');
   var hit = map[key];
-  if (hit && hit !== m[1]) location.replace('/c/' + hit + '/' + location.search);
+  if (hit) location.replace('/' + hit + '/' + location.search);
 })();
 </script>
 </head>
@@ -205,7 +207,7 @@ function landing() {
   // Rail: one scene from each pack first, then the rest; links go to the challenge pages.
   const firsts = packs.map((p) => scenes.find((s) => s.pack === p));
   const rail = [...firsts, ...scenes.filter((s) => !firsts.includes(s))].slice(0, 14);
-  const railHtml = rail.map((s) => `<li><a class="scene-card" href="/c/${publicId(s)}/"><img src="/assets/img/scenes/${s.id}-sm.webp" width="480" height="270" alt="${esc(s.title)}" loading="lazy" decoding="async"><div><strong>${esc(s.title)}</strong><small>${esc(s.pack)}</small></div></a></li>`).join('\n');
+  const railHtml = rail.map((s) => `<li><a class="scene-card" href="/${publicId(s)}/"><img src="/assets/img/scenes/${s.id}-sm.webp" width="480" height="270" alt="${esc(s.title)}" loading="lazy" decoding="async"><div><strong>${esc(s.title)}</strong><small>${esc(s.pack)}</small></div></a></li>`).join('\n');
   const quotes = JUDGE_LINES.map((q) => `<li>${esc(q)}</li>`).join('');
   const quotesDup = JUDGE_LINES.map((q) => `<li aria-hidden="true">${esc(q)}</li>`).join('');
   const sceneLookup = JSON.stringify(aliasMap);
@@ -243,14 +245,18 @@ function landing() {
 }
 
 // ---------- write ----------
+// The short link /K3/ is the page. The old /c/K3/ and /c/<scene id>/ links (in videos shared
+// before the short links) get the same page, so they keep working.
 const cDir = join(ROOT, 'c');
 if (existsSync(cDir)) rmSync(cDir, { recursive: true });
+for (const f of readdirSync(ROOT)) {
+  if (/^[A-Z][0-9]{1,2}$/.test(f)) rmSync(join(ROOT, f), { recursive: true });
+}
 let pages = 0;
 for (const s of scenes) {
-  const folders = s.code ? [s.code, s.id] : [s.id];
-  for (const f of folders) {
-    mkdirSync(join(cDir, f), { recursive: true });
-    writeFileSync(join(cDir, f, 'index.html'), challengePage(s, f));
+  for (const dir of [join(ROOT, s.code), join(cDir, s.code), join(cDir, s.id)]) {
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'index.html'), challengePage(s));
     pages++;
   }
 }
@@ -258,7 +264,7 @@ writeFileSync(join(ROOT, '404.html'), notFoundPage());
 writeFileSync(join(ROOT, 'index.html'), landing());
 
 const today = new Date().toISOString().slice(0, 10);
-const urls = ['/', ...scenes.map((s) => `/c/${publicId(s)}/`)];
+const urls = ['/', ...scenes.map((s) => `/${publicId(s)}/`)];
 writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
