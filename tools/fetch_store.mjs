@@ -2,7 +2,6 @@
 // Run before tools/build.mjs whenever the listing changes:  node tools/fetch_store.mjs
 // The site shows exactly what the store shows, instead of copies that can go stale.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,6 +28,12 @@ const ALT = {
 const dir = join(ROOT, 'assets/img/shots');
 mkdirSync(dir, { recursive: true });
 
+// A screenshot is fetched again only when its address in the listing changed. The image server
+// does not return the same bytes for the same picture every time, so comparing bytes would make
+// the daily run commit all screenshots again each day.
+const storePath = join(ROOT, 'data/store.json');
+const old = existsSync(storePath) ? JSON.parse(readFileSync(storePath, 'utf8')) : null;
+
 // Download everything first, so a failed download never leaves the folder half empty.
 const shots = [];
 const files = [];
@@ -36,14 +41,17 @@ for (const [i, url] of app.screenshotUrls.entries()) {
   // .../<uploaded name>.png/<size>bb.jpg : ask the image server for a 600px wide WebP instead.
   const base = url.replace(/\/[^/]+$/, '');
   const name = /\/([^/]+)\.(png|jpe?g)$/i.exec(base)?.[1] ?? `shot_${i + 1}`;
-  const img = await fetch(`${base}/600x1300bb.webp`);
-  if (!img.ok) throw new Error(`Screenshot ${i + 1} failed: HTTP ${img.status}`);
-  const bytes = Buffer.from(await img.arrayBuffer());
   const file = `${String(i + 1).padStart(2, '0')}.webp`;
-  files.push({ file, bytes });
-  shots.push({ file, alt: ALT[name] ?? `Voice Judge screenshot ${i + 1}`, sha256: createHash('sha256').update(bytes).digest('hex') });
+  const kept = old?.shots?.[i]?.src === base && existsSync(join(dir, file));
+  if (!kept) {
+    const img = await fetch(`${base}/600x1300bb.webp`);
+    if (!img.ok) throw new Error(`Screenshot ${i + 1} failed: HTTP ${img.status}`);
+    files.push({ file, bytes: Buffer.from(await img.arrayBuffer()) });
+  }
+  shots.push({ file, alt: ALT[name] ?? `Voice Judge screenshot ${i + 1}`, src: base });
 }
-for (const f of readdirSync(dir)) rmSync(join(dir, f));
+const wanted = new Set(shots.map((s) => s.file));
+for (const f of readdirSync(dir)) if (!wanted.has(f)) rmSync(join(dir, f));
 for (const f of files) writeFileSync(join(dir, f.file), f.bytes);
 
 const store = {
@@ -54,10 +62,8 @@ const store = {
   shots,
 };
 // Keep the old date when nothing changed, so a daily run does not touch the file for no reason.
-const storePath = join(ROOT, 'data/store.json');
-const old = existsSync(storePath) ? JSON.parse(readFileSync(storePath, 'utf8')) : null;
 const { fetchedAt: oldDate, ...oldRest } = old ?? {};
 const same = old && JSON.stringify(oldRest) === JSON.stringify(store);
 store.fetchedAt = same ? oldDate : new Date().toISOString().slice(0, 10);
 writeFileSync(storePath, JSON.stringify(store, null, 2) + '\n');
-console.log(`store: ${shots.length} screenshots, rating ${store.rating} (${store.ratingCount}), version ${store.version}, ${same ? 'no change' : 'changed'}`);
+console.log(`store: ${shots.length} screenshots (${files.length} downloaded), rating ${store.rating} (${store.ratingCount}), version ${store.version}, ${same ? 'no change' : 'changed'}`);

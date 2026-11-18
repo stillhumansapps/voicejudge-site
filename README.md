@@ -116,5 +116,6 @@ listing, not from files in the app repo:
     node tools/fetch_store.mjs   # downloads the screenshots, writes data/store.json
     node tools/build.mjs
 
-Run both after the store listing changes. The rating only shows when it is 4.0 or higher with at
+A GitHub Actions job (`.github/workflows/store-sync.yml`) runs both once a day and commits only
+when the listing changed; run them by hand to pick up a change sooner. The rating only shows when it is 4.0 or higher with at
 least 20 ratings.
