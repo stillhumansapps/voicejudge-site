@@ -2,33 +2,33 @@
   "appStoreId": "6801482202",
   "version": "1.0.10",
   "rating": 4.4,
-  "ratingCount": 150,
+  "ratingCount": 151,
   "shots": [
     {
       "file": "01.webp",
       "alt": "Make funny dubs with friends: the judge at her neon desk with a gavel",
-      "sha256": "2cd935bdc9127154b5a82fd537cc24d470795477f7c36b94c0138002f4cff612"
+      "sha256": "30a2f42d8ac923fd228265797a334cf3704b14c2969be5c12d906321850cd1bb"
     },
     {
       "file": "02.webp",
       "alt": "Pick a scene: the home screen with tonight's scene and scene packs",
-      "sha256": "7ede9df52890fbe4b8e7d91c4dbeae1fb6842e6d287bd4f3890d16b95bf5a572"
+      "sha256": "e738028ca76d531c741b0435e50fe0ce3142cf30bdceac62305e0611483afe54"
     },
     {
       "file": "03.webp",
       "alt": "Do the voices: the dub screen with the line to say and a waveform",
-      "sha256": "0e2892394d258cede5d463eed7a0ca3d9ad7031617cee7ac8320060e47336b34"
+      "sha256": "c0c082d16b40bf12500cff7699710e95d6e4cb2e88eeb1abe3cd4c67c411b2e1"
     },
     {
       "file": "04.webp",
       "alt": "Get judged: a score with timing, energy and delivery bars",
-      "sha256": "7784b197b28b9b2a4598cd1e759ff0570006c5be98f07d6f1e9b20bc80c9bbcb"
+      "sha256": "55488f920c37d6c6e43f53093dc1d7e68db52e86eadae21d3d45da6ea2e6d915"
     },
     {
       "file": "05.webp",
       "alt": "Share the laughs: the judge celebrates next to a glowing microphone",
-      "sha256": "4dcc7339c76759bc869974bf2c8508bf139b2da6c4db53c0756721e3e8b7f2e9"
+      "sha256": "8c61b09e319fbf79c48d305d0da52f064f91448fa80155af25cc3932b40aafc1"
     }
   ],
-  "fetchedAt": "2026-11-17"
+  "fetchedAt": "2026-11-18"
 }
