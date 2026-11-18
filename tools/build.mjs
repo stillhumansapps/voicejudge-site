@@ -78,6 +78,7 @@ const head = ({ title, description, path, image, imageAlt, robots = 'index,follo
 <meta name="robots" content="${robots}">
 <meta name="theme-color" content="#6A3FE0">
 <meta name="color-scheme" content="dark">
+<meta name="darkreader-lock">
 ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
