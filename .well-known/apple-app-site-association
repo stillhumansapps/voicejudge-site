@@ -5,12 +5,12 @@
       {
         "appIDs": ["89T79RTJ37.com.mindblows.voicejudge"],
         "components": [
-          { "/": "/c/*", "comment": "Challenge links from shared dub videos, e.g. /c/K3" }
+          { "/": "/j/*", "comment": "Online room invite: /j/ROOMCODE opens the app on the room" }
         ]
       },
       {
         "appID": "89T79RTJ37.com.mindblows.voicejudge",
-        "paths": ["/c/*"]
+        "paths": ["/j/*"]
       }
     ]
   }

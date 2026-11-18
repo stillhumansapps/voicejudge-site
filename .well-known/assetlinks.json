@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.mindblows.voicejudge",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_SHA256"
+        "96:D4:12:7F:B6:78:DF:C7:F7:49:AE:05:E7:B6:77:44:05:B0:8D:87:34:59:86:02:58:8E:C3:FE:A3:1C:B9:23",
+        "AE:61:B8:B8:F7:FE:F5:A0:6E:6C:D8:BA:C6:4B:66:39:39:49:C8:BF:4C:EF:2F:94:48:06:94:D8:45:DE:D8:E9"
       ]
     }
   }

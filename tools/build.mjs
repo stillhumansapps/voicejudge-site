@@ -180,6 +180,12 @@ ${head({ title: 'Scene not found | Voice Judge', description: 'This page is not 
   var hit = map[key];
   if (hit) location.replace('/' + hit + '/' + location.search);
 })();
+// Online room invites from the app: /j/482915. GitHub Pages has no rewrites, so the invite page lives at /j/
+// and gets the code as ?code=. (With the app installed, the phone opens the app before this page loads.)
+(function () {
+  var m = /^\\/j\\/([^\\/?#]+)\\/?$/.exec(location.pathname);
+  if (m) location.replace('/j/?code=' + encodeURIComponent(m[1]));
+})();
 </script>
 </head>
 <body class="stage">

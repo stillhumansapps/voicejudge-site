@@ -10,7 +10,8 @@ every page is committed.
 |------|------|
 | `index.html` | Landing page (generated from `src/index.html`) |
 | `c/<id>/index.html` | Challenge pages, one per catalog scene (generated) |
-| `404.html` | Friendly not-found page. Also fixes the case of challenge links (`/c/k3` -> `/c/K3/`) |
+| `404.html` | Friendly not-found page. Also fixes the case of challenge links (`/c/k3` -> `/c/K3/`); sends room invites `/j/482915` to `/j/?code=482915` |
+| `j/index.html` | Online room invite page (hand-written, not generated; ported from the app repo's `firebase/hosting/public/join.html`). With the app installed, `/j/CODE` opens the app instead |
 | `.well-known/assetlinks.json` | Android App Links |
 | `.well-known/apple-app-site-association` | iOS universal links |
 | `CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml` | Hosting files |

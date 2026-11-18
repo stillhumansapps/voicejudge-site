@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#07081A">
+<title>Join my Voice Judge room</title>
+<meta name="description" content="A friend invited you to an online Voice Judge game. Tap to join.">
+<meta property="og:title" content="Join my Voice Judge room">
+<meta property="og:description" content="A friend invited you to an online Voice Judge game. Tap to join.">
+<meta property="og:image" content="https://voicejudge.app/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&display=swap">
+<style>
+/* Colours and shapes mirror presentation/neon/NeonTheme.kt and NeonStage.kt (NeonStyle). */
+:root{
+  --bg-deep:#07081A;--bg-mid:#130C33;--spot:#5A1A6E;
+  --pink:#FF3D8A;--pink-hot:#FF5FA2;--pink-deep:#E0207A;
+  --gold-top:#FFE27A;--gold-deep:#F5B52A;--ink:#2A1600;
+  --violet:#7B5CFF;--text:#fff;--muted:#C9B8E8;--dim:#8E7FB0;
+  --glass:rgba(255,255,255,.10);--glass-stroke:rgba(255,255,255,.14);
+  --edge:#FDFBFF;
+  --display:"Unbounded",ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{
+  margin:0;min-height:100vh;min-height:100dvh;color:var(--text);font-family:var(--body);
+  background:var(--bg-deep);
+  background-image:radial-gradient(120% 70% at 50% -10%,var(--spot) 0%,rgba(90,26,110,0) 60%),
+    linear-gradient(180deg,var(--bg-mid) 0%,var(--bg-deep) 70%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+}
+[hidden]{display:none!important}
+main{max-width:440px;margin:0 auto;padding:28px 16px calc(28px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.wm{margin:6px 0 4px;font-family:var(--display);font-weight:800;line-height:.92;
+  font-size:clamp(44px,15vw,64px);letter-spacing:-.01em;transform:rotate(-6deg);
+  display:flex;flex-direction:column;align-items:center}
+.wm span{text-shadow:.045em .075em 0 var(--violet)}
+.wm span:first-child{color:var(--edge)}
+.wm span:last-child{color:var(--pink)}
+h1.title{font-family:var(--display);font-weight:800;font-size:24px;margin:8px 0 0;
+  text-shadow:1px 2px 0 var(--violet)}
+.sub{margin:0;color:var(--muted);font-size:16px;line-height:1.4}
+.card{width:100%;background:var(--glass);border:1px solid var(--glass-stroke);border-radius:24px;
+  padding:18px 14px 16px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.label{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+/* Six digits in two groups of three ("482 915"), sized to fit a 320 px wide phone. */
+.tiles{display:flex;gap:clamp(10px,4vw,18px);justify-content:center}
+.grp{display:flex;gap:clamp(4px,1.5vw,7px)}
+.tile{width:clamp(36px,11vw,50px);height:clamp(48px,14vw,62px);display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:800;font-size:clamp(24px,8vw,32px);color:var(--text);
+  background:var(--bg-mid);border:2px solid var(--edge);border-radius:12px;
+  box-shadow:2px 3px 0 var(--violet);font-variant-numeric:tabular-nums}
+.tile:nth-child(2){transform:rotate(-3deg)}
+.grp:last-child .tile:nth-child(1){transform:rotate(2deg)}
+.grp:last-child .tile:nth-child(3){transform:rotate(-2deg)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;
+  padding:14px 22px;border:0;border-radius:999px;font-family:var(--display);font-weight:800;
+  font-size:17px;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  box-shadow:0 4px 0 var(--violet);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--violet)}
+.btn:focus-visible{outline:3px solid var(--edge);outline-offset:3px}
+.pink{color:#fff;background:linear-gradient(180deg,var(--pink-hot),var(--pink-deep))}
+.gold{color:var(--ink);background:linear-gradient(180deg,var(--gold-top),var(--gold-deep))}
+.ghost{width:auto;min-height:40px;padding:8px 20px;font-size:14px;color:#fff;
+  background:rgba(255,255,255,.16);border:2px solid var(--edge);box-shadow:2px 3px 0 var(--violet)}
+.ghost:active{transform:translate(2px,3px);box-shadow:0 0 0 var(--violet)}
+.ghost.done{background:var(--pink)}
+.stores{width:100%;display:flex;flex-direction:column;gap:14px}
+.hint{margin:0;color:var(--muted);font-size:14px;line-height:1.45;max-width:36ch}
+.note{margin:0;color:var(--pink-hot);font-size:14px;font-weight:600}
+footer{margin-top:10px;font-size:12px;color:var(--dim)}
+footer a{color:var(--dim)}
+@media (min-width:720px){
+  main{padding-top:64px;max-width:600px}
+  .card,#ok>.btn{max-width:440px}
+  .stores.both{flex-direction:row}
+  .stores.both .btn{font-size:14px;padding:14px 16px}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="wm" aria-label="Voice Judge" role="img"><span>VOICE</span><span>JUDGE</span></div>
+
+  <section id="ok" hidden style="display:contents">
+    <h1 class="title" data-t="title">You're invited!</h1>
+    <p class="sub" data-t="sub">A friend wants you in their Voice Judge room.</p>
+    <div class="card">
+      <div class="label" id="codeLabel" data-t="label">Room code</div>
+      <div class="tiles" id="code" role="text" aria-labelledby="codeLabel"></div>
+      <button class="btn ghost" id="copy" type="button" data-t="copy">Copy</button>
+    </div>
+    <a class="btn pink" id="open" href="#" data-t="open">Open in app</a>
+    <p class="note" id="nothing" hidden data-t="nothing">Nothing happened? Get the app below.</p>
+  </section>
+
+  <section id="bad" hidden style="display:contents">
+    <h1 class="title" data-t="badTitle">This link is not valid</h1>
+    <p class="sub" data-t="badBody">Ask your friend to send the invite again, or get the app and join with a code.</p>
+  </section>
+
+  <noscript><p class="sub">The room code is the 6 digits at the end of this link. Get the app, open it, tap Online, then Join with code.</p></noscript>
+
+  <p class="hint" id="desk" hidden data-t="desktop">Open this link on your phone, or get the app:</p>
+  <div class="stores both" id="stores">
+    <!-- Static hrefs carry no room code: no-JS fallback, and analytics link tracking never sees the code. -->
+    <a class="btn gold" id="ios" href="https://apps.apple.com/app/id6801482202" data-t="appStore">Download on the App Store</a>
+    <a class="btn gold" id="play" href="https://play.google.com/store/apps/details?id=com.mindblows.voicejudge&amp;referrer=utm_source%3Dinvite%26utm_medium%3Dlink" data-t="play">Get it on Google Play</a>
+  </div>
+  <p class="hint" id="after" hidden></p>
+
+  <footer><a href="/">Voice Judge</a> · <a href="https://mindblows.com/privacy-policy">Privacy</a></footer>
+</main>
+<script>
+(function () {
+  'use strict';
+
+  // ===== CONFIG ===========================================================================
+  // GA4 measurement id of a Firebase *web* app in project sh-voice-judge
+  // (Firebase console > Project settings > Your apps > Web app > measurementId, "G-...").
+  // While it is the placeholder, no analytics script loads and no data leaves the page.
+  var GA_MEASUREMENT_ID = 'G-PP8ZDENW98';
+  // 'denied' (default): Google consent mode, no cookies or local storage, so no consent banner.
+  //   Events are still sent, but GA4 may hide or only model them in standard reports.
+  // 'granted': full GA4 counts, but sets first-party _ga cookies, which need user consent in
+  //   the EU/UK. Owner's call; check GA4 Realtime after the first deploy either way.
+  var ANALYTICS_STORAGE = 'denied';
+  // ========================================================================================
+
+  var APP_STORE_URL = 'https://apps.apple.com/app/id6801482202';
+  var PLAY_PACKAGE = 'com.mindblows.voicejudge';
+  var SCHEME = 'voicejudge';
+  // A room code: 6 digits, 100000-999999 (shared/.../online/RoomCodes.kt, database.rules.json).
+  var CODE_RE = /^[1-9][0-9]{5}$/;
+
+  var S = {
+    en: { title: "You're invited!", sub: 'A friend wants you in their Voice Judge room.', label: 'Room code',
+      copy: 'Copy', copied: 'Copied', open: 'Open in app', nothing: 'Nothing happened? Get the app below.',
+      ios: 'After installing, open Voice Judge, tap Online, then Join with code, and type this code.',
+      android: 'After installing, open Voice Judge. The code is filled in for you. If not, tap Online, then Join with code.',
+      desktop: 'Open this link on your phone, or get the app:', badTitle: 'This link is not valid',
+      badBody: 'Ask your friend to send the invite again, or get the app and join with a code.',
+      appStore: 'Download on the App Store', play: 'Get it on Google Play' },
+    de: { title: 'Du bist eingeladen!', sub: 'Ein Freund will dich in seinem Voice-Judge-Raum.', label: 'Raumcode',
+      copy: 'Kopieren', copied: 'Kopiert', open: 'In der App öffnen', nothing: 'Nichts passiert? Hol dir unten die App.',
+      ios: 'Öffne nach der Installation Voice Judge, tippe auf Online, dann Mit Code beitreten, und gib diesen Code ein.',
+      android: 'Öffne nach der Installation Voice Judge. Der Code ist schon eingetragen. Falls nicht: Online, dann Mit Code beitreten.',
+      desktop: 'Öffne diesen Link auf deinem Handy oder hol dir die App:', badTitle: 'Dieser Link ist ungültig',
+      badBody: 'Bitte deinen Freund, die Einladung nochmal zu schicken, oder hol dir die App und tritt mit einem Code bei.',
+      appStore: 'Laden im App Store', play: 'Jetzt bei Google Play' },
+    it: { title: 'Sei invitato!', sub: 'Un amico ti vuole nella sua stanza di Voice Judge.', label: 'Codice stanza',
+      copy: 'Copia', copied: 'Copiato', open: "Apri nell'app", nothing: "Non è successo niente? Scarica l'app qui sotto.",
+      ios: "Dopo l'installazione apri Voice Judge, tocca Online, poi Entra con un codice, e scrivi questo codice.",
+      android: "Dopo l'installazione apri Voice Judge. Il codice è già inserito. Se no, tocca Online, poi Entra con un codice.",
+      desktop: "Apri questo link sul telefono o scarica l'app:", badTitle: 'Questo link non è valido',
+      badBody: "Chiedi al tuo amico di rimandare l'invito, oppure scarica l'app ed entra con un codice.",
+      appStore: 'Scarica su App Store', play: 'Disponibile su Google Play' },
+    es: { title: '¡Te han invitado!', sub: 'Un amigo te quiere en su sala de Voice Judge.', label: 'Código de sala',
+      copy: 'Copiar', copied: 'Copiado', open: 'Abrir en la app', nothing: '¿No pasó nada? Descarga la app abajo.',
+      ios: 'Tras instalarla, abre Voice Judge, toca Online, luego Unirse con código, y escribe este código.',
+      android: 'Tras instalarla, abre Voice Judge. El código ya estará puesto. Si no, toca Online y luego Unirse con código.',
+      desktop: 'Abre este enlace en tu móvil o descarga la app:', badTitle: 'Este enlace no es válido',
+      badBody: 'Pide a tu amigo que te reenvíe la invitación, o descarga la app y únete con un código.',
+      appStore: 'Descárgalo en App Store', play: 'Disponible en Google Play' },
+    pt: { title: 'Você foi convidado!', sub: 'Um amigo quer você na sala dele do Voice Judge.', label: 'Código da sala',
+      copy: 'Copiar', copied: 'Copiado', open: 'Abrir no app', nothing: 'Nada aconteceu? Baixe o app abaixo.',
+      ios: 'Depois de instalar, abra o Voice Judge, toque em Online, depois em Entrar com código, e digite este código.',
+      android: 'Depois de instalar, abra o Voice Judge. O código já vem preenchido. Se não, toque em Online e depois em Entrar com código.',
+      desktop: 'Abra este link no celular ou baixe o app:', badTitle: 'Este link não é válido',
+      badBody: 'Peça ao seu amigo para enviar o convite de novo, ou baixe o app e entre com um código.',
+      appStore: 'Baixar na App Store', play: 'Disponível no Google Play' },
+    fr: { title: 'Vous êtes invité !', sub: 'Un ami vous attend dans sa salle Voice Judge.', label: 'Code de la salle',
+      copy: 'Copier', copied: 'Copié', open: "Ouvrir dans l'app", nothing: "Rien ne se passe ? Téléchargez l'app ci-dessous.",
+      ios: "Après l'installation, ouvrez Voice Judge, touchez En ligne, puis Rejoindre avec un code, et tapez ce code.",
+      android: "Après l'installation, ouvrez Voice Judge. Le code est déjà rempli. Sinon, touchez En ligne, puis Rejoindre avec un code.",
+      desktop: "Ouvrez ce lien sur votre téléphone ou téléchargez l'app :", badTitle: "Ce lien n'est pas valide",
+      badBody: "Demandez à votre ami de renvoyer l'invitation, ou téléchargez l'app et rejoignez avec un code.",
+      appStore: "Télécharger dans l'App Store", play: 'Disponible sur Google Play' }
+  };
+
+  function pickLang(list) {
+    for (var i = 0; i < list.length; i++) {
+      var l = String(list[i] || '').toLowerCase().slice(0, 2);
+      if (S[l]) return l;
+    }
+    return 'en';
+  }
+
+  function normalize(raw) {
+    if (raw == null) return null;
+    var c;
+    try { c = decodeURIComponent(String(raw)); } catch (e) { return null; }
+    // Spaces or a dash between the groups ("482 915", "482-915") are fine; anything else is not a code.
+    c = c.trim().replace(/[\s-]/g, '');
+    return CODE_RE.test(c) ? c : null;
+  }
+
+  // Code from /j/482915, else ?code=482915 or #482915. GitHub Pages has no rewrites: /j/482915 is served by
+  // 404.html, which sends the visitor here as /j/?code=482915.
+  function parseCode(pathname, search, hash) {
+    var m = /^\/j\/([^\/]+)\/?$/.exec(pathname || '');
+    if (m && !/^index\.html$/i.test(m[1])) return normalize(m[1]);
+    if (/^\/j(\/|\/index\.html)?$/i.test(pathname || '')) {
+      var q0 = /[?&]code=([^&#]*)/.exec(search || '');
+      var h0 = String(hash || '').replace(/^#(code=)?/, '');
+      return q0 ? normalize(q0[1]) : (h0 ? normalize(h0) : null);
+    }
+    if (/^\/j(\/|$)/.test(pathname || '')) return null;
+    var q = /[?&]code=([^&#]*)/.exec(search || '');
+    if (q) return normalize(q[1]);
+    var h = String(hash || '').replace(/^#(code=)?/, '');
+    return h ? normalize(h) : null;
+  }
+
+  var IN_APP_RE = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Line\/|TikTok|musical_ly|BytedanceWebview|Snapchat|Twitter|LinkedInApp|MicroMessenger|GSA\/|Pinterest|; wv\)/i;
+
+  function detect(ua, maxTouchPoints) {
+    ua = ua || '';
+    var platform = 'desktop';
+    if (/Android/i.test(ua)) platform = 'android';
+    else if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && (maxTouchPoints || 0) > 1)) platform = 'ios';
+    return { platform: platform, inApp: platform !== 'desktop' && IN_APP_RE.test(ua) };
+  }
+
+  function playUrl(code) {
+    var ref = (code ? 'join=' + code + '&' : '') + 'utm_source=invite&utm_medium=link';
+    return 'https://play.google.com/store/apps/details?id=' + PLAY_PACKAGE + '&referrer=' + encodeURIComponent(ref);
+  }
+
+  function links(platform, code) {
+    // Plain custom scheme on both platforms. If the app is missing, nothing opens and the
+    // "Nothing happened?" note points at the store button (so every store visit is tracked).
+    return { open: SCHEME + '://join/' + code, appStore: APP_STORE_URL, play: playUrl(code) };
+  }
+
+  // ---- analytics: never send the room code. Fixed, code-free page fields. ----
+  var gaOn = /^G-[A-Z0-9]{4,}$/.test(GA_MEASUREMENT_ID) && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX';
+  var events = [];
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  if (gaOn) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    gtag('consent', 'default', {
+      analytics_storage: ANALYTICS_STORAGE === 'granted' ? 'granted' : 'denied',
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, {
+      send_page_view: false,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      page_location: location.origin + '/j/',
+      page_path: '/j/',
+      page_title: 'Voice Judge invite',
+      page_referrer: ''
+    });
+  }
+  function track(name, params, done) {
+    events.push([name, params || {}]);
+    if (!gaOn) { if (done) done(); return; }
+    var fired = false;
+    function go() { if (!fired) { fired = true; if (done) done(); } }
+    var p = {};
+    for (var k in params) p[k] = params[k];
+    if (done) { p.event_callback = go; setTimeout(go, 400); }
+    gtag('event', name, p);
+  }
+
+  window.VJInvite = { parseCode: parseCode, detect: detect, links: links, pickLang: pickLang, events: events, gaOn: gaOn };
+
+  // ---- page ----
+  var lang = pickLang(navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]);
+  var T = S[lang];
+  document.documentElement.lang = lang;
+  var nodes = document.querySelectorAll('[data-t]');
+  for (var i = 0; i < nodes.length; i++) nodes[i].textContent = T[nodes[i].getAttribute('data-t')];
+
+  var env = detect(navigator.userAgent, navigator.maxTouchPoints);
+  var code = parseCode(location.pathname, location.search, location.hash);
+  var L = links(env.platform, code || '');
+  var $ = function (id) { return document.getElementById(id); };
+
+  if (env.platform === 'ios') $('play').hidden = true;
+  if (env.platform === 'android') $('ios').hidden = true;
+  if (env.platform !== 'desktop') $('stores').classList.remove('both');
+
+  if (code) {
+    $('ok').hidden = false;
+    var tiles = $('code');
+    tiles.setAttribute('aria-label', code.split('').join(' '));
+    // Shown grouped 3 + 3 ("482 915"), as people say it; Copy and the links use the plain 6 digits.
+    for (var g = 0; g < 2; g++) {
+      var grp = document.createElement('span');
+      grp.className = 'grp';
+      for (var j = g * 3; j < g * 3 + 3; j++) {
+        var t = document.createElement('span');
+        t.className = 'tile'; t.setAttribute('aria-hidden', 'true'); t.textContent = code[j];
+        grp.appendChild(t);
+      }
+      tiles.appendChild(grp);
+    }
+    if (env.platform === 'desktop') { $('open').hidden = true; $('desk').hidden = false; }
+    else { $('after').textContent = T[env.platform]; $('after').hidden = false; }
+  } else {
+    $('bad').hidden = false;
+  }
+
+  track('invite_page_view', { platform: env.platform, in_app_browser: env.inApp, link_valid: !!code });
+
+  function navigate(url) { location.href = url; }
+
+  $('open').addEventListener('click', function (e) {
+    e.preventDefault();
+    track('invite_open_app_tap', { platform: env.platform, in_app_browser: env.inApp });
+    navigate(L.open);
+    setTimeout(function () { if (!document.hidden) $('nothing').hidden = false; }, 1600);
+  });
+
+  function storeClick(store, url) {
+    return function (e) {
+      if (!code) { track('invite_store_tap', { store: store, platform: env.platform }); return; }
+      e.preventDefault();
+      track('invite_store_tap', { store: store, platform: env.platform }, function () { navigate(url); });
+    };
+  }
+  $('ios').addEventListener('click', storeClick('app_store', L.appStore));
+  $('play').addEventListener('click', storeClick('google_play', L.play));
+
+  $('copy').addEventListener('click', function () {
+    var btn = this;
+    function ok() {
+      btn.textContent = T.copied; btn.classList.add('done');
+      setTimeout(function () { btn.textContent = T.copy; btn.classList.remove('done'); }, 1600);
+      track('invite_code_copy', { platform: env.platform });
+    }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = code; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch (err) { /* nothing to do */ }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(ok, fallback);
+    else fallback();
+  });
+})();
+</script>
+</body>
+</html>
