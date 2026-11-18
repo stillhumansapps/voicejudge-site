@@ -1,0 +1,40 @@
+# Once a day: pull the screenshots and rating from the live App Store listing, rebuild the
+# pages and commit only when something changed. GitHub Pages republishes on that commit.
+name: Sync App Store listing
+
+on:
+  schedule:
+    - cron: '17 5 * * *'   # every day at 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: store-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pull the listing and rebuild
+        run: |
+          node tools/fetch_store.mjs
+          node tools/build.mjs
+      - name: Commit when the listing changed
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "Listing unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync screenshots and rating from the App Store listing"
+          git push
