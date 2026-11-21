@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the static site from site.config.json, data/scenes.json and src/index.html.
 // No dependencies:  node tools/build.mjs
-// Writes: index.html, c/<id>/index.html, 404.html, sitemap.xml
+// Writes: index.html, <code>/index.html, c/<id>/index.html, get/index.html, 404.html, sitemap.xml
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -48,6 +48,11 @@ const stores = (extraClass = '') => `<div class="stores ${extraClass}">
   <a class="store google" href="${esc(cfg.playStoreUrl)}" rel="noopener">${PLAY_SVG}<span><small>GET IT ON</small><strong>Google Play</strong></span></a>
 </div>`;
 
+// Phones get this one button instead of the two store badges (site.css shows it once site.js has
+// marked the page is-ios / is-android). /get/ sends each phone to its own store; site.js points
+// the button straight at that store to save the hop.
+const getApp = () => `<a class="pill big get-app" href="/get/" data-get-app>Get the app<b>Free</b></a>`;
+
 const header = (withNav) => `<a class="skip" href="#main">Skip to content</a>
 <header class="bar">
   <div class="wrap">
@@ -84,7 +89,7 @@ ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/baloo2-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=7">
+<link rel="stylesheet" href="/assets/css/site.css?v=9">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voice Judge">
 <meta property="og:title" content="${esc(title)}">
@@ -141,6 +146,7 @@ ${header(false)}
       <h1 id="ch-title">Your friend dubbed this scene. <em>Can you beat them?</em></h1>
       <p class="sub">Get Voice Judge, play <b>${esc(s.title)}</b>, and let the judge decide who wins.</p>
       <p class="beat-score" data-beat aria-live="polite">They scored <b>0</b>. Beat it.</p>
+      ${getApp()}
       ${stores()}
       <!-- Universal link / App Link hook: this is the same https URL. Once the iOS app has
            "applinks:voicejudge.app" and the Android app has a verified intent filter for
@@ -158,7 +164,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=6" defer></script>
+<script src="/assets/js/site.js?v=7" defer></script>
 </body>
 </html>
 `;
@@ -201,7 +207,44 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=6" defer></script>
+<script src="/assets/js/site.js?v=7" defer></script>
+</body>
+</html>
+`;
+}
+
+// ---------- get the app ----------
+// voicejudge.app/get: one link for every device. A phone goes straight to its own store; a
+// computer (or a browser without JavaScript) sees both stores and a QR code back to this link.
+// Not in apple-app-site-association on purpose: it must open in the browser, never in the app.
+function getPage() {
+  const url = `${SITE}/get`;
+  const qr = qrSvg(url, { label: `QR code that opens ${url}` });
+  return `<!doctype html>
+<html lang="en">
+<head>
+${head({ title: 'Get Voice Judge | Free on iPhone and Android', description: 'Get Voice Judge free on the App Store or Google Play. Dub the scene, get judged.', path: '/get/', image: '/assets/img/og/og-main.jpg', imageAlt: 'Voice Judge: dub the scene, get judged', robots: 'noindex' })}
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  if (/Android/i.test(ua)) location.replace(${JSON.stringify(cfg.playStoreUrl)});
+  else if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) location.replace(${JSON.stringify(cfg.appStoreUrl)});
+})();
+</script>
+</head>
+<body class="stage">
+${header(false)}
+<main id="main" class="lost get">
+  <div class="wrap">
+    <img src="/assets/img/judge/cheer-sm.webp" width="226" height="360" alt="The Voice Judge, a blue-haired judge with headphones and a gavel, cheering">
+    <h1>Get Voice Judge</h1>
+    <p>Free on iPhone and Android. Dub the scene and let the judge decide who wins.</p>
+    ${stores()}
+    <div class="qr-box">${qr}<p><b>On a computer?</b>Scan with your phone camera to get the app there.</p></div>
+  </div>
+</main>
+${footer()}
+<script src="/assets/js/site.js?v=7" defer></script>
 </body>
 </html>
 `;
@@ -268,6 +311,8 @@ for (const s of scenes) {
   }
 }
 writeFileSync(join(ROOT, '404.html'), notFoundPage());
+mkdirSync(join(ROOT, 'get'), { recursive: true });
+writeFileSync(join(ROOT, 'get/index.html'), getPage());
 
 // Universal links (iOS): invites (/j/CODE) and challenge links (/K3, the older /c/...) open the app.
 // One path per short code, so the site's other pages stay in Safari. The Android app lists the
@@ -300,4 +345,4 @@ writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 ${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `);
-console.log(`built: index.html, 404.html, sitemap.xml, ${pages} challenge pages for ${scenes.length} scenes`);
+console.log(`built: index.html, 404.html, get/index.html, sitemap.xml, ${pages} challenge pages for ${scenes.length} scenes`);

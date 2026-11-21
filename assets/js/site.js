@@ -6,6 +6,12 @@
   var isAndroid = /Android/i.test(ua);
   root.classList.add(isIOS ? "is-ios" : isAndroid ? "is-android" : "is-desktop");
 
+  // Phones: the one "Get the app" button goes straight to this phone's store (its own href, /get/, does the same with a hop).
+  var phoneStore = document.querySelector(isIOS ? ".store.apple" : isAndroid ? ".store.google" : null);
+  if (phoneStore) {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-get-app]"), function (el) { el.href = phoneStore.href; });
+  }
+
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Reveal on scroll
