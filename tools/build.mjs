@@ -51,7 +51,7 @@ const stores = (extraClass = '') => `<div class="stores ${extraClass}">
 // Phones get this one button instead of the two store badges (site.css shows it once site.js has
 // marked the page is-ios / is-android). /get/ sends each phone to its own store; site.js points
 // the button straight at that store to save the hop.
-const getApp = () => `<a class="pill big get-app" href="/get/" data-get-app>Get the app<b>Free</b></a>`;
+const getApp = () => `<a class="pill big get-app" href="/get/" data-get-app>Get the app <b>Free</b></a>`;
 
 const header = (withNav) => `<a class="skip" href="#main">Skip to content</a>
 <header class="bar">
@@ -165,7 +165,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=8" defer></script>
+<script src="/assets/js/site.js?v=9" defer></script>
 </body>
 </html>
 `;
@@ -208,7 +208,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=8" defer></script>
+<script src="/assets/js/site.js?v=9" defer></script>
 </body>
 </html>
 `;
@@ -245,7 +245,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=8" defer></script>
+<script src="/assets/js/site.js?v=9" defer></script>
 </body>
 </html>
 `;

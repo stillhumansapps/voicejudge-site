@@ -27,8 +27,16 @@
     openApp.addEventListener("click", function (e) {
       e.preventDefault();
       location.href = openApp.getAttribute("data-app-link");
+      // The note is for "no app answered". Leaving the page at any point after the tap (the app opened,
+      // also late, after the system's own "Open in...?" question) means one did, so it stays away.
       var note = document.querySelector("[data-open-note]");
-      setTimeout(function () { if (note && !document.hidden) note.hidden = false; }, 1600);
+      var left = false;
+      var leave = function () { left = true; if (note) note.hidden = true; };
+      var hid = function () { if (document.hidden) leave(); };
+      window.addEventListener("pagehide", leave, { once: true });
+      window.addEventListener("blur", leave, { once: true });
+      document.addEventListener("visibilitychange", hid);
+      setTimeout(function () { if (note && !left && !document.hidden) note.hidden = false; }, 1600);
     });
   }
 
