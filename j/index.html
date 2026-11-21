@@ -155,42 +155,42 @@ footer a{color:var(--soft)}
       android: 'After installing, open Voice Judge. The code is filled in for you. If not, tap Online, then Join with code.',
       desktop: 'Open this link on your phone, or get the app:', badTitle: 'This link is not valid',
       badBody: 'Ask your friend to send the invite again, or get the app and join with a code.',
-      appStore: 'Download on the App Store', play: 'Get it on Google Play' },
+      appStore: 'Download on the App Store', play: 'Get it on Google Play', getApp: 'Get the app' },
     de: { title: 'Du bist eingeladen!', sub: 'Ein Freund will dich in seinem Voice-Judge-Raum.', label: 'Raumcode',
       copy: 'Kopieren', copied: 'Kopiert', open: 'In der App öffnen', nothing: 'Nichts passiert? Hol dir unten die App.',
       ios: 'Öffne nach der Installation Voice Judge, tippe auf Online, dann Mit Code beitreten, und gib diesen Code ein.',
       android: 'Öffne nach der Installation Voice Judge. Der Code ist schon eingetragen. Falls nicht: Online, dann Mit Code beitreten.',
       desktop: 'Öffne diesen Link auf deinem Handy oder hol dir die App:', badTitle: 'Dieser Link ist ungültig',
       badBody: 'Bitte deinen Freund, die Einladung nochmal zu schicken, oder hol dir die App und tritt mit einem Code bei.',
-      appStore: 'Laden im App Store', play: 'Jetzt bei Google Play' },
+      appStore: 'Laden im App Store', play: 'Jetzt bei Google Play', getApp: 'App holen' },
     it: { title: 'Sei invitato!', sub: 'Un amico ti vuole nella sua stanza di Voice Judge.', label: 'Codice stanza',
       copy: 'Copia', copied: 'Copiato', open: "Apri nell'app", nothing: "Non è successo niente? Scarica l'app qui sotto.",
       ios: "Dopo l'installazione apri Voice Judge, tocca Online, poi Entra con un codice, e scrivi questo codice.",
       android: "Dopo l'installazione apri Voice Judge. Il codice è già inserito. Se no, tocca Online, poi Entra con un codice.",
       desktop: "Apri questo link sul telefono o scarica l'app:", badTitle: 'Questo link non è valido',
       badBody: "Chiedi al tuo amico di rimandare l'invito, oppure scarica l'app ed entra con un codice.",
-      appStore: 'Scarica su App Store', play: 'Disponibile su Google Play' },
+      appStore: 'Scarica su App Store', play: 'Disponibile su Google Play', getApp: "Scarica l'app" },
     es: { title: '¡Te han invitado!', sub: 'Un amigo te quiere en su sala de Voice Judge.', label: 'Código de sala',
       copy: 'Copiar', copied: 'Copiado', open: 'Abrir en la app', nothing: '¿No pasó nada? Descarga la app abajo.',
       ios: 'Tras instalarla, abre Voice Judge, toca Online, luego Unirse con código, y escribe este código.',
       android: 'Tras instalarla, abre Voice Judge. El código ya estará puesto. Si no, toca Online y luego Unirse con código.',
       desktop: 'Abre este enlace en tu móvil o descarga la app:', badTitle: 'Este enlace no es válido',
       badBody: 'Pide a tu amigo que te reenvíe la invitación, o descarga la app y únete con un código.',
-      appStore: 'Descárgalo en App Store', play: 'Disponible en Google Play' },
+      appStore: 'Descárgalo en App Store', play: 'Disponible en Google Play', getApp: 'Descarga la app' },
     pt: { title: 'Você foi convidado!', sub: 'Um amigo quer você na sala dele do Voice Judge.', label: 'Código da sala',
       copy: 'Copiar', copied: 'Copiado', open: 'Abrir no app', nothing: 'Nada aconteceu? Baixe o app abaixo.',
       ios: 'Depois de instalar, abra o Voice Judge, toque em Online, depois em Entrar com código, e digite este código.',
       android: 'Depois de instalar, abra o Voice Judge. O código já vem preenchido. Se não, toque em Online e depois em Entrar com código.',
       desktop: 'Abra este link no celular ou baixe o app:', badTitle: 'Este link não é válido',
       badBody: 'Peça ao seu amigo para enviar o convite de novo, ou baixe o app e entre com um código.',
-      appStore: 'Baixar na App Store', play: 'Disponível no Google Play' },
+      appStore: 'Baixar na App Store', play: 'Disponível no Google Play', getApp: 'Baixar o app' },
     fr: { title: 'Vous êtes invité !', sub: 'Un ami vous attend dans sa salle Voice Judge.', label: 'Code de la salle',
       copy: 'Copier', copied: 'Copié', open: "Ouvrir dans l'app", nothing: "Rien ne se passe ? Téléchargez l'app ci-dessous.",
       ios: "Après l'installation, ouvrez Voice Judge, touchez En ligne, puis Rejoindre avec un code, et tapez ce code.",
       android: "Après l'installation, ouvrez Voice Judge. Le code est déjà rempli. Sinon, touchez En ligne, puis Rejoindre avec un code.",
       desktop: "Ouvrez ce lien sur votre téléphone ou téléchargez l'app :", badTitle: "Ce lien n'est pas valide",
       badBody: "Demandez à votre ami de renvoyer l'invitation, ou téléchargez l'app et rejoignez avec un code.",
-      appStore: "Télécharger dans l'App Store", play: 'Disponible sur Google Play' }
+      appStore: "Télécharger dans l'App Store", play: 'Disponible sur Google Play', getApp: "Télécharger l'app" }
   };
 
   function pickLang(list) {
@@ -301,6 +301,9 @@ footer a{color:var(--soft)}
   if (env.platform === 'ios') $('play').hidden = true;
   if (env.platform === 'android') $('ios').hidden = true;
   if (env.platform !== 'desktop') $('stores').classList.remove('both');
+  // A phone has one store, so its one button just says "Get the app".
+  if (env.platform === 'ios') $('ios').textContent = T.getApp;
+  if (env.platform === 'android') $('play').textContent = T.getApp;
 
   if (code) {
     $('ok').hidden = false;

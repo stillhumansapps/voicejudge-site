@@ -10,6 +10,7 @@ every page is committed.
 |------|------|
 | `index.html` | Landing page (generated from `src/index.html`) |
 | `c/<id>/index.html` | Challenge pages, one per catalog scene (generated) |
+| `get/index.html` | `voicejudge.app/get`: one "get the app" link for every device (generated). A phone goes straight to its own store; a computer sees both stores and a QR code. On phones the challenge pages show one "Get the app" button in place of the two store badges |
 | `404.html` | Friendly not-found page. Also fixes the case of challenge links (`/c/k3` -> `/c/K3/`); sends room invites `/j/482915` to `/j/?code=482915` |
 | `j/index.html` | Online room invite page (hand-written, not generated; ported from the app repo's `firebase/hosting/public/join.html`). With the app installed, `/j/CODE` opens the app instead |
 | `.well-known/assetlinks.json` | Android App Links |
@@ -51,7 +52,11 @@ The catalog comes from two places in the app repo:
 
 - `/c/<id>` shows the scene, "Can you beat them?", store buttons (App Store first on iOS,
   Google Play first on Android, both plus a QR code on desktop) and an
-  "Already have the app? Open the scene" button whose href is the same https URL.
+  "Already have the app? Open the scene" button. Its href is the same https URL; on a phone
+  `site.js` sends the tap to the app's own scheme (`voicejudge://scene/K3`), because a tap on a
+  link to the page's own address, or inside a mail app's browser, never opens the app. The
+  Android "Get the app" link carries `scene=K3` as the Play install referrer, so a new player
+  gets the friend's scene after onboarding.
 - `?s=<0-100>` shows "They scored N. Beat it." Anything else is ignored.
 - Wrong case or a trailing dot (`/c/k3`, `/c/K3.`) is fixed by `404.html`, which redirects to
   the real page. GitHub Pages is case-sensitive and macOS disks usually are not, so only one
