@@ -89,7 +89,7 @@ ${canonical ? `<link rel="canonical" href="${SITE}${path}">` : ''}
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/baloo2-800.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=9">
+<link rel="stylesheet" href="/assets/css/site.css?v=10">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Voice Judge">
 <meta property="og:title" content="${esc(title)}">
@@ -148,11 +148,12 @@ ${header(false)}
       <p class="beat-score" data-beat aria-live="polite">They scored <b>0</b>. Beat it.</p>
       ${getApp()}
       ${stores()}
-      <!-- Universal link / App Link hook: this is the same https URL. Once the iOS app has
-           "applinks:voicejudge.app" and the Android app has a verified intent filter for
-           the short links (https://voicejudge.app/K3), opening this link on a phone with the app goes to the scene.
-           No custom URL scheme on purpose. -->
-      <a class="pill ghost big open-app" href="${url}" data-app-link data-scene="${esc(s.id)}">Already have the app? Open the scene</a>
+      <!-- The href is this page's own https URL: it is the universal link / App Link the app opens when the
+           link is tapped somewhere else, but a tap on it here (same address), or inside a mail app's browser,
+           stays in the browser. So on a phone site.js sends the tap to the app's own scheme, data-app-link
+           (voicejudge://scene/K3), and shows the note below when no app answers. -->
+      <a class="pill ghost big open-app" href="${url}" data-app-link="voicejudge://scene/${esc(pid)}" data-scene="${esc(s.id)}" data-code="${esc(pid)}">Already have the app? Open the scene</a>
+      <p class="open-note" data-open-note hidden>Nothing happened? Get the app with the button above, then tap here again.</p>
       <div class="qr-box">${qr}<p><b>On a computer?</b>Scan with your phone camera to open this challenge there.</p></div>
       <ol class="mini-steps" aria-label="How it works">
         <li><b>1</b>Watch the scene, then the original voice is muted.</li>
@@ -164,7 +165,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=7" defer></script>
+<script src="/assets/js/site.js?v=8" defer></script>
 </body>
 </html>
 `;
@@ -207,7 +208,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=7" defer></script>
+<script src="/assets/js/site.js?v=8" defer></script>
 </body>
 </html>
 `;
@@ -244,7 +245,7 @@ ${header(false)}
   </div>
 </main>
 ${footer()}
-<script src="/assets/js/site.js?v=7" defer></script>
+<script src="/assets/js/site.js?v=8" defer></script>
 </body>
 </html>
 `;

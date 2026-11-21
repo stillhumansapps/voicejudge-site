@@ -8,8 +8,28 @@
 
   // Phones: the one "Get the app" button goes straight to this phone's store (its own href, /get/, does the same with a hop).
   var phoneStore = document.querySelector(isIOS ? ".store.apple" : isAndroid ? ".store.google" : null);
+  var openApp = document.querySelector("[data-app-link]");
   if (phoneStore) {
-    Array.prototype.forEach.call(document.querySelectorAll("[data-get-app]"), function (el) { el.href = phoneStore.href; });
+    var storeUrl = phoneStore.href;
+    // Android, on a challenge page: Google Play hands the scene to the app on its first launch
+    // (install referrer), so the friend's scene opens once the new player is through onboarding.
+    if (isAndroid && openApp && openApp.getAttribute("data-code")) {
+      storeUrl += (storeUrl.indexOf("?") < 0 ? "?" : "&") + "referrer=" +
+        encodeURIComponent("scene=" + openApp.getAttribute("data-code") + "&utm_source=challenge&utm_medium=link");
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-get-app]"), function (el) { el.href = storeUrl; });
+  }
+
+  // Phones: "Open the scene" goes to the app's own scheme. Its https href is this very page, and a
+  // tap on a link to the page's own address (or inside a mail app's browser) never opens the app.
+  // No app installed: nothing happens, so a note points at the "Get the app" button.
+  if (openApp && (isIOS || isAndroid) && openApp.getAttribute("data-app-link")) {
+    openApp.addEventListener("click", function (e) {
+      e.preventDefault();
+      location.href = openApp.getAttribute("data-app-link");
+      var note = document.querySelector("[data-open-note]");
+      setTimeout(function () { if (note && !document.hidden) note.hidden = false; }, 1600);
+    });
   }
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

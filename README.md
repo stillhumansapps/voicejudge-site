@@ -52,7 +52,11 @@ The catalog comes from two places in the app repo:
 
 - `/c/<id>` shows the scene, "Can you beat them?", store buttons (App Store first on iOS,
   Google Play first on Android, both plus a QR code on desktop) and an
-  "Already have the app? Open the scene" button whose href is the same https URL.
+  "Already have the app? Open the scene" button. Its href is the same https URL; on a phone
+  `site.js` sends the tap to the app's own scheme (`voicejudge://scene/K3`), because a tap on a
+  link to the page's own address, or inside a mail app's browser, never opens the app. The
+  Android "Get the app" link carries `scene=K3` as the Play install referrer, so a new player
+  gets the friend's scene after onboarding.
 - `?s=<0-100>` shows "They scored N. Beat it." Anything else is ignored.
 - Wrong case or a trailing dot (`/c/k3`, `/c/K3.`) is fixed by `404.html`, which redirects to
   the real page. GitHub Pages is case-sensitive and macOS disks usually are not, so only one
