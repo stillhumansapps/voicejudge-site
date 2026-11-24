@@ -2,7 +2,7 @@
   "appStoreId": "6801482202",
   "version": "1.0.10",
   "rating": 4.4,
-  "ratingCount": 158,
+  "ratingCount": 160,
   "shots": [
     {
       "file": "01.webp",
@@ -30,5 +30,5 @@
       "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/11/5d/46/115d465e-7119-3057-e6cc-29813f7f2308/05_board.png"
     }
   ],
-  "fetchedAt": "2026-11-23"
+  "fetchedAt": "2026-11-24"
 }
