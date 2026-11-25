@@ -1,34 +1,39 @@
 {
   "appStoreId": "6801482202",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "rating": 4.4,
-  "ratingCount": 160,
+  "ratingCount": 161,
   "shots": [
     {
       "file": "01.webp",
-      "alt": "Make funny dubs with friends: the judge at her neon desk with a gavel",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9a/66/5d/9a665d12-62b5-4442-7326-2036a30953f0/01_hook.png"
+      "alt": "Voice Judge screenshot 1",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7a/15/5d/7a155dbf-3537-572f-29f5-dc36f99c3816/01.png"
     },
     {
       "file": "02.webp",
-      "alt": "Pick a scene: the home screen with tonight's scene and scene packs",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5f/f9/61/5ff96140-b423-67b7-5dd9-0c3a1f540787/02_home.png"
+      "alt": "Voice Judge screenshot 2",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ba/ed/eb/baedeb3d-0dee-fdb4-9d2a-74058fee6a60/02.png"
     },
     {
       "file": "03.webp",
-      "alt": "Do the voices: the dub screen with the line to say and a waveform",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fa/99/3e/fa993e01-57e5-a184-a963-4782c43daa05/03_listen.png"
+      "alt": "Voice Judge screenshot 3",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/af/41/47af41e6-71c8-b572-b623-021f9e228439/03.png"
     },
     {
       "file": "04.webp",
-      "alt": "Get judged: a score with timing, energy and delivery bars",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d5/39/63/d5396320-fd58-08fc-e9c0-c3e813220855/04_score.png"
+      "alt": "Voice Judge screenshot 4",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/59/d6/38/59d63844-3252-6f9f-b003-f1e2bec74056/04.png"
     },
     {
       "file": "05.webp",
-      "alt": "Share the laughs: the judge celebrates next to a glowing microphone",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/11/5d/46/115d465e-7119-3057-e6cc-29813f7f2308/05_board.png"
+      "alt": "Voice Judge screenshot 5",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7e/89/84/7e89841b-07d7-70b0-c3a1-6715e28f35a7/05.png"
+    },
+    {
+      "file": "06.webp",
+      "alt": "Voice Judge screenshot 6",
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/59/d1/54/59d15488-9446-cd90-5107-7e56dfa57799/06.png"
     }
   ],
-  "fetchedAt": "2026-11-24"
+  "fetchedAt": "2026-11-25"
 }
