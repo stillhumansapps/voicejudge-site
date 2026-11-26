@@ -1,39 +1,39 @@
 {
   "appStoreId": "6801482202",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "rating": 4.4,
   "ratingCount": 161,
   "shots": [
     {
       "file": "01.webp",
       "alt": "Voice Judge screenshot 1",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7a/15/5d/7a155dbf-3537-572f-29f5-dc36f99c3816/01.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c3/d7/e6/c3d7e608-6c37-cd1f-1540-88010e9373b6/cheeky_en_01.png"
     },
     {
       "file": "02.webp",
       "alt": "Voice Judge screenshot 2",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ba/ed/eb/baedeb3d-0dee-fdb4-9d2a-74058fee6a60/02.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/17/c7/d1/17c7d170-0852-f5f5-005b-eb1054e5c46c/cheeky_en_02.png"
     },
     {
       "file": "03.webp",
       "alt": "Voice Judge screenshot 3",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/af/41/47af41e6-71c8-b572-b623-021f9e228439/03.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e6/b7/e7/e6b7e7ad-7815-3878-89ee-52158c21adea/cheeky_en_03.png"
     },
     {
       "file": "04.webp",
       "alt": "Voice Judge screenshot 4",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/59/d6/38/59d63844-3252-6f9f-b003-f1e2bec74056/04.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2f/5d/5c/2f5d5c48-5aff-e1be-414f-bf4741afb182/cheeky_en_04.png"
     },
     {
       "file": "05.webp",
       "alt": "Voice Judge screenshot 5",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7e/89/84/7e89841b-07d7-70b0-c3a1-6715e28f35a7/05.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/50/31/2f/50312fc4-52e8-05f2-cdf0-8fecae57b671/cheeky_en_05.png"
     },
     {
       "file": "06.webp",
       "alt": "Voice Judge screenshot 6",
-      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/59/d1/54/59d15488-9446-cd90-5107-7e56dfa57799/06.png"
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/06/49/b2/0649b25d-1c4e-76c9-c7b6-d2254bf34ec6/cheeky_en_06.png"
     }
   ],
-  "fetchedAt": "2026-11-25"
+  "fetchedAt": "2026-11-26"
 }
