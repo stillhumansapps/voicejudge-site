@@ -2,7 +2,7 @@
   "appStoreId": "6801482202",
   "version": "1.0.13",
   "rating": 4.4,
-  "ratingCount": 161,
+  "ratingCount": 162,
   "shots": [
     {
       "file": "01.webp",
@@ -35,5 +35,5 @@
       "src": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/06/49/b2/0649b25d-1c4e-76c9-c7b6-d2254bf34ec6/cheeky_en_06.png"
     }
   ],
-  "fetchedAt": "2026-11-26"
+  "fetchedAt": "2026-11-28"
 }
